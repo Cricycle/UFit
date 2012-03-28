@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/background">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:text="Cardio Selection"
+        android:textSize="25dp"
+        android:layout_height="wrap_content"
+        android:textColor="#ff8c00"
+        android:textStyle="bold"/>
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Run" 
+        android:textColor="#ff8c00"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ff8c00"
+        android:textSize="20dp"
+        android:text="Swim" />
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ff8c00"
+        android:textSize="20dp"
+        android:text="Bike" />
+
+    <CheckBox
+        android:id="@+id/checkBox4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ff8c00"
+        android:textSize="20dp"
+        android:text="Walk" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="67dp"
+        android:layout_height="38dp"
+        android:layout_marginLeft="250dp"
+        android:layout_marginTop="150dp"
+        android:background="@drawable/button_orange"
+        android:text="Next" />
+    
+</LinearLayout>

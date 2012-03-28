@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/background">
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="@string/machine_selection"
+        android:textSize="30dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:textColor="#ff8c00"
+        android:textStyle="bold"/>
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dumbells" 
+        android:textColor="#ff8c00"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/barbells" 
+        android:textColor="#ff8c00"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/machine1"
+        android:textColor="#ff8c00"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+
+    <CheckBox
+        android:id="@+id/checkBox4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/machine2" 
+        android:textColor="#ff8c00"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+
+    <CheckBox
+        android:id="@+id/checkBox5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/machine3" 
+        android:textColor="#ff8c00"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+
+    <CheckBox
+        android:id="@+id/checkBox6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/machine4" 
+        android:textColor="#ff8c00"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+
+    <CheckBox
+        android:id="@+id/checkBox7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/machine5" 
+        android:textColor="#ff8c00"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+
+    <CheckBox
+        android:id="@+id/checkBox8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/machine6" 
+        android:textColor="#ff8c00"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/button0"
+        android:layout_gravity="right"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:text="@string/next" 
+        android:background="@drawable/button_orange"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+    
+</LinearLayout>

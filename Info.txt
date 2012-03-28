@@ -1,0 +1,5 @@
+Hey
+
+So some things which I used are in /values/strings.xml
+
+And I haven't found a way around Eclipse being annoying about re-naming things.
