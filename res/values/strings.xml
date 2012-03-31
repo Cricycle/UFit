@@ -27,5 +27,9 @@
 	    <item>"itemNumber4"</item>
 	    <item>"defaultItem5"</item>
 	</string-array>
+	<string-array name="MF">
+	    <item>"M"</item>
+	    <item>"F"</item>
+	</string-array>
 
 </resources>

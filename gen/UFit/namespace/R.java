@@ -9,6 +9,7 @@ package UFit.namespace;
 
 public final class R {
     public static final class array {
+        public static final int MF=0x7f060001;
         public static final int equipmentNames=0x7f060000;
     }
     public static final class attr {
@@ -54,6 +55,7 @@ public final class R {
         public static final int warning=0x7f020017;
     }
     public static final class id {
+        public static final int bmi2=0x7f070023;
         public static final int button0=0x7f07000d;
         public static final int button1=0x7f070004;
         public static final int button2=0x7f070006;
@@ -86,9 +88,9 @@ public final class R {
         public static final int profile_textview_height=0x7f070019;
         public static final int profile_textview_name=0x7f070016;
         public static final int profile_textview_weight=0x7f070018;
-        public static final int skill_button_advanced=0x7f070025;
-        public static final int skill_button_beginner=0x7f070023;
-        public static final int skill_button_intermediate=0x7f070024;
+        public static final int skill_button_advanced=0x7f070026;
+        public static final int skill_button_beginner=0x7f070024;
+        public static final int skill_button_intermediate=0x7f070025;
         public static final int textView1=0x7f070013;
         public static final int textView2=0x7f070014;
         public static final int viewAnimator1=0x7f070005;
