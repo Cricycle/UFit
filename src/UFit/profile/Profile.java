@@ -1,4 +1,4 @@
-package UFit.profile;
+package ufit.profile;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -8,7 +8,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-import UFit.namespace.R;
+import ufit.namespace.R;
 import android.content.Context;
 import android.content.res.Resources;
 
