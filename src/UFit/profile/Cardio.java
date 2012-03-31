@@ -13,7 +13,7 @@ public class Cardio extends Profile
 	boolean elliptical;
 	final int workoutType = 1;
 	
-	Cardio(Context context)
+	public Cardio(Context context)
 	{
 		super(context);
 		run = false; 
@@ -22,7 +22,7 @@ public class Cardio extends Profile
 		walk = false;
 		elliptical = false;
 	}
-	void saveProfile(PrintWriter out)
+	public void saveProfile(PrintWriter out)
 	{
 		out.print(run + " ");
 		out.print(swim + " ");
@@ -30,7 +30,7 @@ public class Cardio extends Profile
 		out.print(walk + " ");
 		out.println(elliptical + " ");
 	}
-	void loadProfile(BufferedReader b) throws IOException
+	public void loadProfile(BufferedReader b) throws IOException
 	{
 		String line = b.readLine();
 		String[] result = line.split(" ");
@@ -41,48 +41,48 @@ public class Cardio extends Profile
 		walk = result[3].equals("true");
 		elliptical = result[4].equals("true");
 	}
-	boolean getRun()
+	public boolean getRun()
 	{
 		return run;
 	}
-	boolean getSwim()
+	public boolean getSwim()
 	{
 		return swim;
 	}
-	boolean getBike()
+	public boolean getBike()
 	{
 		return bike;
 	}
-	boolean getWalk()
+	public boolean getWalk()
 	{
 		return walk;
 	}
-	boolean getElliptical()
+	public boolean getElliptical()
 	{
 		return elliptical;
 	}
-	int getWorkoutType()
+	public int getWorkoutType()
 	{
 		return workoutType;
 	}
 	
-	void setRun(boolean r)
+	public void setRun(boolean r)
 	{
 		run = r;
 	}
-	void setSwim(boolean s)
+	public void setSwim(boolean s)
 	{
 		swim = s;
 	}
-	void setBike(boolean b)
+	public void setBike(boolean b)
 	{
 		bike = b;
 	}
-	void setWalk(boolean w)
+	public void setWalk(boolean w)
 	{
 		walk = w;
 	}
-	void setElliptical(boolean e)
+	public void setElliptical(boolean e)
 	{
 		elliptical =e;
 	}
