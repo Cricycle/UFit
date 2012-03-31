@@ -138,5 +138,32 @@
         android:layout_toRightOf="@+id/profile_textview_gender">
         
     </Spinner>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/profile_textview_gender"
+        android:layout_alignRight="@+id/profile_button_previous"
+        android:layout_below="@+id/profile_spinner_gender"
+        android:layout_marginTop="36dp"
+        android:text="BMI: "
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ff8c00"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    
+    <TextView
+        android:id="@+id/bmi2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView1"
+        android:layout_alignRight="@+id/profile_edittext_weight"
+        android:text=" "
+        android:textColor="#ff8c00"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>
