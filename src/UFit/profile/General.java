@@ -11,91 +11,88 @@ public class General extends Profile
 	Strength sProfile;
 	final int workoutType = 3;
 	
-	General(Context context)
+	public General(Context context)
 	{
 		super(context);
 		cProfile = new Cardio(context);
 		sProfile = new Strength(context);
 	}
-	void saveProfile(PrintWriter out)
+	public void saveProfile(PrintWriter out)
 	{
 		cProfile.saveProfile(out);
 		sProfile.saveProfile(out);
 	}
-	void loadProfile(BufferedReader b)throws IOException
+	public void loadProfile(BufferedReader b)throws IOException
 	{
 		cProfile.loadProfile(b);
 		sProfile.loadProfile(b);
 	}
-	boolean getRun()
+	public boolean getRun()
 	{
 		return cProfile.getRun();
 	}
-	boolean getSwim()
+	public boolean getSwim()
 	{
 		return  cProfile.getSwim();
 	}
-	boolean getBike()
+	public boolean getBike()
 	{
 		return  cProfile.getBike();
 	}
-	boolean getWalk()
+	public boolean getWalk()
 	{
 		return  cProfile.getWalk();
 	}
-	boolean getElliptical()
+	public boolean getElliptical()
 	{
 		return  cProfile.getElliptical();
 	}
-	int getWorkoutType()
+	public int getWorkoutType()
 	{
 		return workoutType;
 	}
 	
-	void setRun(boolean r)
+	public void setRun(boolean r)
 	{
 		 cProfile.setRun(r);
 	}
-	void setSwim(boolean s)
+	public void setSwim(boolean s)
 	{
 		cProfile.setSwim(s);
 	}
-	void setBike(boolean b)
+	public void setBike(boolean b)
 	{
 		cProfile.setBike(b);
 	}
-	void setWalk(boolean w)
+	public void setWalk(boolean w)
 	{
 		cProfile.setWalk(w);
 	}
-	void setElliptical(boolean e)
+	public void setElliptical(boolean e)
 	{
 		cProfile.setElliptical(e);
 	}
-
-
-	void setLegs (boolean l)
+	public void setLegs(boolean l)
 	{
 		sProfile.setLegs(l);
 	}
-	void setArms (boolean a)
+	public void setArms(boolean a)
 	{
 		sProfile.setArms(a);
 	}
-	void setTorso (boolean t)
+	public void setTorso(boolean t)
 	{
 		sProfile.setTorso(t);
 	}
-
-	boolean getLegs ()
+	public boolean getLegs()
 	{
 		return sProfile.getLegs();
 	}
-	boolean getArms ()
+	public boolean getArms()
 	{
 		return sProfile.getArms();
 	}
-	boolean getTorso ()
+	public boolean getTorso()
 	{
 		return sProfile.getTorso();
 	}

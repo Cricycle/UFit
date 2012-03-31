@@ -12,20 +12,20 @@ public class Strength extends Profile
 	boolean torso;
 	final int workoutType = 2 ;
 	
-	Strength(Context context)
+	public Strength(Context context)
 	{
 		super(context);
 		legs = false;
 		arms = false;
 		torso = false;
 	}
-	void saveProfile(PrintWriter out)
+	public void saveProfile(PrintWriter out)
 	{
 		out.print(legs + " ");
 		out.print(arms + " ");
 		out.println(torso + " ");
 	}
-	void loadProfile(BufferedReader b) throws IOException
+	public void loadProfile(BufferedReader b) throws IOException
 	{
 		String line = b.readLine();
 		String[] result = line.split(" ");
@@ -35,31 +35,31 @@ public class Strength extends Profile
 		torso = result[2].equals("true");
 	}
 
-	void setLegs (boolean l)
+	public void setLegs (boolean l)
 	{
 		legs = l;
 	}
-	void setArms (boolean a)
+	public void setArms (boolean a)
 	{
 		arms = a;
 	}
-	void setTorso (boolean t)
+	public void setTorso (boolean t)
 	{
 		torso = t;
 	}
-	boolean getLegs ()
+	public boolean getLegs ()
 	{
 		return legs;
 	}
-	boolean getArms ()
+	public boolean getArms ()
 	{
 		return arms;
 	}
-	boolean getTorso ()
+	public boolean getTorso ()
 	{
 		return torso;
 	}
-	int getWorkoutType()
+	public int getWorkoutType()
 	{
 		return workoutType;
 	}

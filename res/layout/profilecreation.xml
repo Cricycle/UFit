@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/background" >
 
-
     <TextView
         android:id="@+id/profile_textview_name"
         android:layout_width="wrap_content"
@@ -24,23 +23,22 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@id/profile_textview_name"
         android:layout_margin="10dp"
-        android:text="Age:"
+        android:text="Birthday:"
         android:textColor="#ff8c00"
         android:textSize="20dp"
         android:textStyle="bold" />
-
+
     <TextView
         android:id="@+id/profile_textview_weight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@id/profile_textview_age"
+        android:layout_below="@+id/profile_birthdaypicker"
         android:layout_margin="10dp"
         android:text="Weight (lbs.):"
         android:textColor="#ff8c00"
         android:textSize="20dp"
         android:textStyle="bold" />
-
 
     <TextView
         android:id="@+id/profile_textview_height"
@@ -53,7 +51,6 @@
         android:textColor="#ff8c00"
         android:textSize="20dp"
         android:textStyle="bold" />
-
 
     <TextView
         android:id="@+id/profile_textview_gender"
@@ -73,8 +70,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:text="Previous"
-        android:onClick="onClickPrevious" />
+        android:onClick="onClickPrevious"
+        android:text="Previous" />
 
     <Button
         android:id="@+id/profile_button_next"
@@ -82,8 +79,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:text="Next"
-        android:onClick="onClickNext" />
+        android:onClick="onClickNext"
+        android:text="Next" />
 
     <EditText
         android:id="@+id/profile_edittext_name"
@@ -95,22 +92,13 @@
 
         <requestFocus />
     </EditText>
-
-    <EditText
-        android:id="@+id/profile_edittext_age"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/profile_textview_age"
-        android:layout_below="@id/profile_textview_name"
-        android:layout_above="@id/profile_textview_weight"
-        android:inputType="number" />
-
-
+
     <EditText
         android:id="@+id/profile_edittext_weight"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/profile_edittext_age"
+        android:layout_above="@+id/profile_edittext_height_feet"
+        android:layout_below="@+id/profile_birthdaypicker"
         android:layout_toRightOf="@+id/profile_textview_weight"
         android:inputType="number" />
 
@@ -135,8 +123,41 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/profile_textview_height"
-        android:layout_toRightOf="@+id/profile_textview_gender">
-        
+        android:layout_toRightOf="@+id/profile_textview_gender" >
     </Spinner>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/profile_textview_gender"
+        android:layout_alignRight="@+id/profile_button_previous"
+        android:layout_below="@+id/profile_spinner_gender"
+        android:layout_marginTop="36dp"
+        android:text="BMI: "
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ff8c00"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/bmi2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView1"
+        android:layout_alignRight="@+id/profile_edittext_weight"
+        android:text=" "
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ff8c00"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <DatePicker
+        android:id="@+id/profile_birthdaypicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/profile_textview_age"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/profile_textview_age" />
 
 </RelativeLayout>

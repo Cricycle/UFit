@@ -3,7 +3,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 import UFit.namespace.R;
 import android.content.Context;
@@ -20,16 +23,20 @@ public class Profile
 	int b_day;
 	int b_month;
 	int b_year;
+	int day;
+	int month;
+	int year;
 	int gender;
 	static final int workoutType = 0;
 	int numWorkoutDays;
 	int skill;
+	ArrayList<Integer> id;
 	
 	boolean equipment[];
 	String equipmentNames[]; //somehow use string.xml as a resource to get names.
 	int equipmentID[];
 	
-	Profile(Context context)
+	public Profile(Context context)
 	{
 	     username = "Albert";
 		 setHeightFeet(6,0);
@@ -40,10 +47,10 @@ public class Profile
 		 b_year = 1990;
 		 
 		 Calendar cal = Calendar.getInstance();
-		   int d = cal.get(Calendar.DATE);
-		   int m = cal.get(Calendar.MONTH) + 1;
-		   int y = cal.get(Calendar.YEAR);
-		   age = computeAge(d, m, y);
+		   day = cal.get(Calendar.DATE);
+		   month = cal.get(Calendar.MONTH) + 1;
+		   year = cal.get(Calendar.YEAR);
+		   age = computeAge(day, month, year);
 		 
 		 gender = 1;
 		 numWorkoutDays = 0;
@@ -52,8 +59,9 @@ public class Profile
 		 equipmentNames = res.getStringArray(R.array.equipmentNames);
 		 equipment = new boolean[equipmentNames.length];
 		 pictureLocation = "NULL//@NoSpace";
+		 id = new ArrayList<Integer>();
 	}
-	void saveProfile(Profile p) 
+	public void saveProfile(Profile p) 
 	{
 		try{
 		  PrintWriter out = new PrintWriter(new FileWriter(p.username + ".txt"));
@@ -91,10 +99,20 @@ public class Profile
 			  g.saveProfile(out);
 		  }
 		  out.println(p.getPictureLocation());
+		  out.println(id.size());
+		  
+		  for(int i=0; i<id.size();i++)
+		  {
+			  out.print(id.get(i)+" ");
+		  }
+		  out.println();
+		  out.println(p.month + " " + p.day + " " + p.year);
+		  
+		  
 		  out.close();
 	  }catch (Exception e){System.out.println("File Error: Save Profile");}
 	}
-	final static Profile loadProfile(String un, Context context)
+	public final static Profile loadProfile(String un, Context context)
 	{
 		try{
 		  BufferedReader b = new BufferedReader(new FileReader(un + ".txt"));
@@ -163,6 +181,20 @@ public class Profile
 		  }
 		  
 		  p.pictureLocation = b.readLine();
+		  int size = new Integer(b.readLine());
+		  
+		  String line = b.readLine();
+		  result = line.split(" ");
+		  ArrayList<Integer> a = new ArrayList<Integer>();
+		  
+		  for(int i=0; i<size; i++)
+		  { 
+			  a.add(new Integer(result[i]));
+		  }
+		  p.setID(a);
+		  line = b.readLine();
+		  result = line.split(" ");
+		  p.setDate(new Integer(result[0]),new Integer(result[1]),new Integer(result[2]));
 		  
 		  b.close();
 		  return p;
@@ -171,54 +203,59 @@ public class Profile
 		}catch (Exception e){System.out.println("File Error: Get Profile");}
 		return null;
 	}
-	
-	void setUsername(String un)
+	public void setUsername(String un)
 	{
 		username = un;
 	}
-	void setHeightFeet(double f, double i)
+	public void setHeightFeet(double f, double i)
 	{
 		heightInches = (12 * f)+i;
 	}
-	void setHeightInches(double i)
+	public void setHeightInches(double i)
 	{
 		heightInches = i;
 	}
-	void setWeight(double w) 
+	public void setWeight(double w) 
 	{
 		weight = w;
 	}
-	void setTargetWeight(double w) 
+	public void setTargetWeight(double w) 
 	{
 		targetWeight = w;
 	}
-	void setBirthDate(int m, int d, int y)
+	public void setBirthDate(int m, int d, int y)
 	{
 		b_month = m;
 		b_day = d;
 		b_year = y;
 	}
-	void setAge(int a) 
+	public void setDate(int m, int d, int y)
+	{
+		month = m;
+		day = d;
+		year = y;
+	}
+	public void setAge(int a) 
 	{
 		age = a;
 	}
-	void setGender(int g) 
+	public void setGender(int g) 
 	{
 		gender = g;
 	}
-	void setSkill(int s)
+	public void setSkill(int s)
 	{
 		skill=s;
 	}
-	void setNumWorkoutDays(int d)
+	public void setNumWorkoutDays(int d)
 	{
 		numWorkoutDays=d;
 	}
-	void setPictureLocation(String p)
+	public void setPictureLocation(String p)
 	{
 		pictureLocation=p;
 	}
-	boolean setEquipment(String e, boolean have)
+	public boolean setEquipment(String e, boolean have)
 	{
 		int index = -1;
 		boolean ret = false;
@@ -236,61 +273,77 @@ public class Profile
 		}
 		return ret;	
 	}
+	public void setID(ArrayList<Integer> a)
+	{
+		id = a;
+	}
 	
 	
-	String getUsername()
+	public String getUsername()
 	{
 		return username;
 	}
-	double getHeightInches() 
+	public double getHeightInches() 
 	{
 		return heightInches;
 	}
-	double getWeight() 
+	public double getWeight() 
 	{
 		return weight;
 	}
-	double getTargetWeight() 
+	public double getTargetWeight() 
 	{
 		return targetWeight;
 	}
-	int getAge() 
+	public int getAge() 
 	{
 		return age;
 	}
-	int getBirthMonth()
+	public int getBirthMonth()
 	{
 		return b_month;
 	}
-	int getBirthDay()
+	public int getBirthDay()
 	{
 		return b_day;
 	}
-	int getBirthYear()
+	public int getBirthYear()
 	{
 		return b_year;
 	}
-	int getGender() 
+	public int getMonth()
+	{
+		return month;
+	}
+	public int getDay()
+	{
+		return day;
+	}
+	public int getYear()
+	{
+		return year;
+	}
+	public int getGender() 
 	{
 		return gender;
 	}
-	int getWorkoutType()
+	public int getWorkoutType()
 	{
 		return workoutType;
 	}
-	int getSkill()
+	public int getSkill()
 	{
 		return skill;
 	}
-	int getNumWorkoutDays()
+	public int getNumWorkoutDays()
 	{
 		return numWorkoutDays;
 	}
-	String getPictureLocation()
+	public String getPictureLocation()
 	{
 		return pictureLocation;
 	}
-	boolean getEquipment(String e)
+	public boolean getEquipment(String e)
 	{
 		boolean ret = false;
 		for(int i=0; i<equipmentNames.length; i++)
@@ -302,8 +355,22 @@ public class Profile
 		}
 		return ret;
 	}
-	
-	int computeAge(int d, int m, int y)
+	public ArrayList<String> getEquipmentList()
+	{
+		ArrayList<String> a = new ArrayList<String>();
+		String e;
+		
+		for(int i=0; i<equipment.length; i++)
+		{
+			if(equipment[i])
+					{
+						e = equipmentNames[i];
+						a.add(new String(e));
+					}
+		}
+		return a;
+	}
+	public int computeAge(int d, int m, int y)
 	{
 		int a = y-b_year;
 		if(b_month>m || (b_month==m && b_day>d))
@@ -312,13 +379,13 @@ public class Profile
 		}
 		return a;
 	}
-	double computeBMI()
+	public double computeBMI()
 	{
 		double bmi_value = (weight*703) / (heightInches*heightInches);
 		bmi_value=(double)(Math.round(bmi_value*10))/10;
 		return bmi_value;
 	}
-	double getCalories(int amountExercise)
+	public double getCalories()
 	{
 		double BMR;
 		double calories;
@@ -331,26 +398,48 @@ public class Profile
 			BMR = (655 + (4.35*weight) +(4.7*heightInches) - (4.7*age));
 		}
 		
-		if(amountExercise==2)
+		if(numWorkoutDays<=3 && numWorkoutDays>=1)
 		{
 			calories = BMR * 1.375;
 		}
-		else if(amountExercise==3)
+		else if(numWorkoutDays<=5 && numWorkoutDays>=3)
 		{
 			calories = BMR * 1.55;
 		}
-		else if(amountExercise==4)
+		else if(numWorkoutDays>5)
 		{
 			calories = BMR * 1.725;
-		}
-		else if(amountExercise==5)
-		{
-			calories = BMR * 1.9;
 		}
 		else
 		{
 			calories = BMR * 1.2;
 		}
 		return calories;
+	}
+	public ArrayList<Integer> getID()
+	{
+		return id;
+	}
+	public boolean hasBeenWeek()
+	{
+		Calendar cal = Calendar.getInstance();
+		  int d = cal.get(Calendar.DATE);
+		  int m = cal.get(Calendar.MONTH) + 1;
+		  int y = cal.get(Calendar.YEAR);
+
+		  Calendar cal1 = new GregorianCalendar();
+		  Calendar cal2 = new GregorianCalendar();
+
+		  cal1.set(y, m, d); 
+		  cal2.set(year, month, day);
+		  Date d1 = (cal1.getTime());
+		  Date d2 = (cal2.getTime());
+		  long diff = d1.getTime()-d2.getTime();
+		  int difference = (int)(diff / (1000 * 60 * 60 * 24));
+		  boolean week =false;
+		  
+		  if(difference>6)week=true;
+		  return week;
+				
 	}
 }
