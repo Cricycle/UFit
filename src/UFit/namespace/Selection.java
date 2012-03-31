@@ -21,7 +21,7 @@ public class Selection extends Activity implements OnClickListener {
 
 	public void onClick(View arg0) {
 		if(arg0.getId() == R.id.create_profile){
-			Intent intent = new Intent(this,Profile.class);
+			Intent intent = new Intent(this,ProfileCreationActivity.class);
 			this.startActivity(intent);
 		}
 		

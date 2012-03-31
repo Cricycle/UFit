@@ -20,5 +20,12 @@
 	<string name="progress_report">Progress Report</string>
 	<string name="machine5">Hamstring Curl Machine</string>
 	<string name="machine6">Pulley Machine</string>
+	<string-array name="equipmentNames">
+	    <item>"arbitraryItem1"</item>
+	    <item>"arbitraryThing2"</item>
+	    <item>"aThirdItem"</item>
+	    <item>"itemNumber4"</item>
+	    <item>"defaultItem5"</item>
+	</string-array>
 
 </resources>
