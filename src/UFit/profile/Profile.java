@@ -26,7 +26,7 @@ public class Profile
 	int day;
 	int month;
 	int year;
-	int gender;
+	int gender; //1 is male, 2 is female.
 	static final int workoutType = 0;
 	int numWorkoutDays;
 	int skill;
@@ -240,7 +240,7 @@ public class Profile
 		age = a;
 	}
 	public void setGender(int g) 
-	{
+	{ //1 is male, 2 is female.
 		gender = g;
 	}
 	public void setSkill(int s)

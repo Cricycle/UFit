@@ -17,6 +17,8 @@ public class MyApp extends Application {
 	
     public Profile getProfile()
     {
+    	if(profile == null)
+    		profile = new Profile(this);
         return profile;
     }
     public void setProfile(String username, Context context)
