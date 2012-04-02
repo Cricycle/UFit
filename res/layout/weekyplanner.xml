@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/weekly_planner"
+        android:textColor="#ff8c00"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+        
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="THIS WEEK"
+        android:textColor="#ff8c00"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+        
+    </LinearLayout>
+
+    <TableLayout
+        android:id="@+id/tableLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.83"
+        android:stretchColumns="1" >
+
+        <TableRow>
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:text="@string/sunday"
+                android:textColor="#ff8c00"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/muscle_group_sun"
+                android:textColor="#ff8c00"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:text="@string/monday"
+                android:textColor="#ff8c00"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/muscle_group_mon"
+                android:textColor="#ff8c00"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:text="@string/tuesday"
+                android:textColor="#ff8c00"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/muscle_group_tue"
+                android:textColor="#ff8c00"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:text="@string/wednesday"
+                android:textColor="#ff8c00"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/muscle_group_wed"
+                android:textColor="#ff8c00"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:text="@string/thursday"
+                android:textColor="#ff8c00"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/muscle_group_thu"
+                android:textColor="#ff8c00"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:text="@string/friday"
+                android:textColor="#ff8c00"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/muscle_group_fri"
+                android:textColor="#ff8c00"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:text="@string/saturday"
+                android:textColor="#ff8c00"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/muscle_group_sat"
+                android:textColor="#ff8c00"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/button0"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_gravity="right"
+        android:background="@drawable/button_orange"
+        android:text="@string/next"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+</LinearLayout>
