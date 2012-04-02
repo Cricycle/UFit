@@ -41,9 +41,9 @@ public class ProfileCreationActivity extends Activity implements OnClickListener
 		v2.setText("23");
 	}
 	
-	//overriding the method
-	protected void onStop() {
-		super.onStop();
+	//overriding the onPause method.
+	protected void onPause() {
+		super.onPause();
 		updateInformation();
 	}
 	

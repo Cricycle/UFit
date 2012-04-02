@@ -23,7 +23,7 @@ public class SwitchButton extends Button implements Checkable {
 		super(context, attr, defStyle);
 	}
 	
-	public void setResources(int res, int index) {//this can cause exceptions if bad indicies are passed in
+	public void setResources(int res, int index) {//this can cause exceptions if bad indices are passed in
 		resources[index] = res;
 	}
 	

@@ -29,7 +29,7 @@ public class Profile
 	int gender; //1 is male, 2 is female.
 	static final int workoutType = 0;
 	int numWorkoutDays;
-	int skill;
+	int skill; //1 indicates beginner, 2 indicates intermediate, 3 indicates advanced.
 	ArrayList<Integer> id;
 	
 	boolean equipment[];
@@ -61,55 +61,98 @@ public class Profile
 		 pictureLocation = "NULL//@NoSpace";
 		 id = new ArrayList<Integer>();
 	}
+	
+	//the purpose of this function is to extend a regular Profile to a specified type
+	public Profile extend(int workOutType, Context context) { 
+		Profile p = null;
+		if(workOutType == 1) {
+			p = new Strength(context);
+		} else if(workOutType == 2) {
+			p = new Cardio(context);
+		} else if(workOutType == 3){
+			p = new General(context);
+		} else {
+			//there shall be errors!!!#error
+		}
+		
+		p.username = this.username;
+		p.pictureLocation = this.pictureLocation;
+		p.heightInches = this.heightInches;
+		p.weight = this.weight;
+		p.targetWeight= this.targetWeight;
+		p.age = this.age;
+		p.b_day = this.b_day;
+		p.b_month = this.b_month;
+		p.b_year = this.b_year;
+		p.day = this.day;
+		p.month = this.month;
+		p.year = this.year;
+		p.gender = this.gender;
+		p.numWorkoutDays = this.numWorkoutDays;
+		p.skill = this.skill;
+		p.id = this.id;
+		p.equipment = this.equipment;
+		p.equipmentNames = this.equipmentNames;
+		p.equipmentID = this.equipmentID;
+		
+		p.setRun( this.getRun() );
+		p.setSwim( this.getSwim() );
+		p.setBike( this.getBike() );
+		p.setElliptical( this.getElliptical() );
+		p.setWalk( this.getWalk() );
+		
+		
+		return p;
+	}
 	public void saveProfile(Profile p) 
 	{
 		try{
-		  PrintWriter out = new PrintWriter(new FileWriter(p.username + ".txt"));
-		  out.print(p.getWorkoutType() + " ");
-		  out.print(p.getUsername() + " ");
-		  out.print(p.getHeightInches() + " ");
-		  out.print(p.getWeight() + " ");
-		  out.print(p.getTargetWeight() + " ");
-		  out.print(p.getBirthMonth() + " ");
-		  out.print(p.getBirthDay() + " ");
-		  out.print(p.getBirthYear() + " ");
-		  out.print(p.getGender() + " ");
-		  out.print(p.getSkill() + " ");
-		  out.println(p.getNumWorkoutDays() + " ");
-		  
-		  for(int i=0; i<equipment.length; i++)
-		  {
-			  out.print(equipment[i] + " ");
-		  }
-		  out.println();
-		  
-		  if(p.getWorkoutType()==1)
-		  {
-			  Cardio c = (Cardio) p;
-			  c.saveProfile(out);
-		  }
-		  else if(p.getWorkoutType()==2)
-		  {
-			  Strength s = (Strength) p;
-			  s.saveProfile(out);
-		  }
-		  else if(p.getWorkoutType()==3)
-		  {
-			  General g = (General) p;
-			  g.saveProfile(out);
-		  }
-		  out.println(p.getPictureLocation());
-		  out.println(id.size());
-		  
-		  for(int i=0; i<id.size();i++)
-		  {
-			  out.print(id.get(i)+" ");
-		  }
-		  out.println();
-		  out.println(p.month + " " + p.day + " " + p.year);
-		  
-		  
-		  out.close();
+			PrintWriter out = new PrintWriter(new FileWriter(p.username + ".txt"));
+			out.print(p.getWorkoutType() + " ");
+			out.print(p.getUsername() + " ");
+			out.print(p.getHeightInches() + " ");
+			out.print(p.getWeight() + " ");
+			out.print(p.getTargetWeight() + " ");
+			out.print(p.getBirthMonth() + " ");
+			out.print(p.getBirthDay() + " ");
+			out.print(p.getBirthYear() + " ");
+			out.print(p.getGender() + " ");
+			out.print(p.getSkill() + " ");
+			out.println(p.getNumWorkoutDays() + " ");
+			
+			for(int i=0; i<equipment.length; i++)
+			{
+				out.print(equipment[i] + " ");
+			}
+			out.println();
+			
+			if(p.getWorkoutType()==1)
+			{
+				Strength s = (Strength) p;
+				s.saveProfile(out);
+			}
+			else if(p.getWorkoutType()==2)
+			{
+				Cardio c = (Cardio) p;
+				c.saveProfile(out);
+			}
+			else if(p.getWorkoutType()==3)
+			{
+				General g = (General) p;
+				g.saveProfile(out);
+			}
+			out.println(p.getPictureLocation());
+			out.println(id.size());
+			
+			for(int i=0; i<id.size();i++)
+			{
+				out.print(id.get(i)+" ");
+			}
+			out.println();
+			out.println(p.month + " " + p.day + " " + p.year);
+			
+			
+			out.close();
 	  }catch (Exception e){System.out.println("File Error: Save Profile");}
 	}
 	public final static Profile loadProfile(String un, Context context)
@@ -125,11 +168,11 @@ public class Profile
 		  
 		  if(type==1)
 		  {
-			  p = new Cardio(context);  
+			  p = new Strength(context);  
 		  }
 		  else if(type==2)
 		  {
-			  p = new Strength(context);
+			  p = new Cardio(context);
 		  }
 		  else if(type==3)
 		  {
@@ -166,13 +209,13 @@ public class Profile
 		  
 		  if(type==1)
 		  {
-			  Cardio c = (Cardio) p; 
-			  c.loadProfile(b);
+			  Strength s = (Strength) p;
+			  s.loadProfile(b);
 		  }
 		  else if(type==2)
 		  {
-			  Strength s = (Strength) p;
-			  s.loadProfile(b);
+			  Cardio c = (Cardio) p; 
+			  c.loadProfile(b);
 		  }
 		  else if(type==3)
 		  {
@@ -442,4 +485,34 @@ public class Profile
 		  return week;
 				
 	}
+	
+	//I chose to add these 10 methods here so that I can make use of polymorphism in the cardioselection screens
+	public boolean getRun()
+	{
+		return false;
+	}
+	public boolean getSwim()
+	{
+		return false;
+	}
+	public boolean getBike()
+	{
+		return false;
+	}
+	public boolean getWalk()
+	{
+		return false;
+	}
+	public boolean getElliptical()
+	{
+		return false;
+	}
+	
+	public void setRun(boolean r){}
+	public void setSwim(boolean s){}
+	public void setBike(boolean b){}
+	public void setWalk(boolean w){}
+	public void setElliptical(boolean e){}
+	
+	
 }

@@ -5,7 +5,7 @@ import android.app.Application;
 import android.content.Context;
 
 public class MyApp extends Application {
-	private int goal =0;
+	private int goal = 0;
 	private Profile profile;
 
 	public void setGoal(int n) {
@@ -24,6 +24,9 @@ public class MyApp extends Application {
     public void setProfile(String username, Context context)
     {
         profile = Profile.loadProfile(username,context);
+    }
+    public void updateProfile(Context context) {
+    	profile = profile.extend(goal, context);
     }
 }
 

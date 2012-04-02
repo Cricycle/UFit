@@ -11,7 +11,7 @@ public class Cardio extends Profile
 	boolean bike;
 	boolean walk;
 	boolean elliptical;
-	final int workoutType = 1;
+	final static int workoutType = 2;
 	
 	public Cardio(Context context)
 	{

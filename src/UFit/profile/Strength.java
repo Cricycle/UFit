@@ -10,7 +10,7 @@ public class Strength extends Profile
 	boolean legs;
 	boolean arms;
 	boolean torso;
-	final int workoutType = 2 ;
+	final static int workoutType = 1;
 	
 	public Strength(Context context)
 	{
@@ -35,27 +35,27 @@ public class Strength extends Profile
 		torso = result[2].equals("true");
 	}
 
-	public void setLegs (boolean l)
+	public void setLegs(boolean l)
 	{
 		legs = l;
 	}
-	public void setArms (boolean a)
+	public void setArms(boolean a)
 	{
 		arms = a;
 	}
-	public void setTorso (boolean t)
+	public void setTorso(boolean t)
 	{
 		torso = t;
 	}
-	public boolean getLegs ()
+	public boolean getLegs()
 	{
 		return legs;
 	}
-	public boolean getArms ()
+	public boolean getArms()
 	{
 		return arms;
 	}
-	public boolean getTorso ()
+	public boolean getTorso()
 	{
 		return torso;
 	}

@@ -5,33 +5,30 @@
     android:orientation="vertical" >
 
 
-    <ufit.global.SwitchButton
+    <Button
         android:id="@+id/skill_button_beginner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1.00"
-        android:onClick="toggle"
         android:background="@drawable/button_orange"
         android:text="Beginner"
         android:textSize="40dp" />
 
 
-    <ufit.global.SwitchButton
+    <Button
         android:id="@+id/skill_button_intermediate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1.00"
-        android:onClick="toggle"
         android:background="@drawable/button_orange"
         android:text="Intermediate"
         android:textSize="40dp" />
 
-    <ufit.global.SwitchButton
+    <Button
         android:id="@+id/skill_button_advanced"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1.00"
-        android:onClick="toggle"
         android:background="@drawable/button_orange"
         android:text="Advanced"
         android:textSize="40dp" />

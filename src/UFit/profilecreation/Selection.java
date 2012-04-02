@@ -25,9 +25,12 @@ public class Selection extends Activity implements OnClickListener {
 			Intent intent = new Intent(this,ProfileCreationActivity.class);
 			this.startActivity(intent);
 		}
-		
 	}
 	
-	
-
+	protected void onNewIntent(Intent i) {
+		if(i.getAction().equals("Go to Home")) {
+			Intent intent = new Intent(this, HomeScreen.class);
+			this.startActivity(intent);
+		}
+	}
 }

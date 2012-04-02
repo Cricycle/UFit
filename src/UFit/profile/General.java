@@ -9,7 +9,7 @@ public class General extends Profile
 {
 	Cardio cProfile;
 	Strength sProfile;
-	final int workoutType = 3;
+	final static int workoutType = 3;
 	
 	public General(Context context)
 	{
