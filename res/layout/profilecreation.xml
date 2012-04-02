@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background" >
+    android:background="@drawable/background"
+    android:focusable="false" >
 
     <TextView
         android:id="@+id/profile_textview_name"
@@ -70,6 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:layout_margin="2dp"
         android:text="Next" />
 
     <EditText
@@ -82,12 +84,13 @@
 
         <requestFocus />
     </EditText>
-
+
     <EditText
         android:id="@+id/profile_edittext_curweight"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/profile_edittext_targetweight"
+        android:layout_alignRight="@+id/profile_button_next"
         android:layout_below="@+id/profile_birthdaypicker"
         android:layout_toRightOf="@+id/profile_textview_curweight"
         android:inputType="numberDecimal" />
@@ -117,17 +120,6 @@
 
     </Spinner>
 
-    <TextView
-        android:id="@+id/profile_textview_bmidisplay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/profile_edittext_curweight"
-        android:text=" "
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#ff8c00"
-        android:textSize="20dp"
-        android:textStyle="bold" />
-
     <DatePicker
         android:id="@+id/profile_birthdaypicker"
         android:layout_width="wrap_content"
@@ -147,14 +139,15 @@
         android:textColor="#ff8c00"
         android:textSize="20dp"
         android:textStyle="bold" />
-
+
     <EditText
         android:id="@+id/profile_edittext_targetweight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/profile_edittext_curweight"
-        android:layout_alignRight="@+id/profile_edittext_curweight"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/profile_textview_curweight"
+        android:layout_margin="2dp"
         android:inputType="numberDecimal" />
 
     <TextView
@@ -164,6 +157,18 @@
         android:layout_alignLeft="@+id/profile_textview_gender"
         android:layout_below="@+id/profile_spinner_gender"
         android:text="BMI: "
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ff8c00"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/profile_textview_bmidisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/profile_spinner_gender"
+        android:layout_below="@+id/profile_spinner_gender"
+        android:text="zz"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#ff8c00"
         android:textSize="20dp"
