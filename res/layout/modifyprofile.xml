@@ -9,11 +9,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="@string/home_screen"
+        android:text="@string/modify_options_screen"
         android:textColor="#ff8c00"
         android:textSize="30dp"
-        android:textStyle="bold" >
-        </TextView>
+        android:textStyle="bold" />
 
     <LinearLayout
         android:id="@+id/linearLayout1"
@@ -27,8 +26,8 @@
             android:src="@drawable/profile_picture" />
 
         <TextView
-            android:id="@+id/homescreen_textview_name"
-            android:layout_width="wrap_content"
+            android:id="@+id/editText1"
+            android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
@@ -38,8 +37,8 @@
             android:textStyle="bold" >
         </TextView>
     </LinearLayout>
-
-    <LinearLayout
+    
+        <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -53,7 +52,7 @@
         android:layout_height="70dp"
         android:layout_gravity="center_vertical|center_horizontal"
         android:background="@drawable/button_orange"
-        android:text="@string/today"
+        android:text="@string/modify_equipment"
         android:textSize="20dp"
         android:textStyle="bold" />
 
@@ -63,7 +62,7 @@
         android:layout_height="70dp"
         android:layout_gravity="center_vertical|center_horizontal"
         android:background="@drawable/button_orange"
-        android:text="@string/weekly"
+        android:text="@string/modify_goals"
         android:textSize="20dp"
         android:textStyle="bold" />
 
@@ -73,20 +72,18 @@
         android:layout_height="70dp"
         android:layout_gravity="center_vertical|center_horizontal"
         android:background="@drawable/button_orange"
-        android:text="@string/modify_profile"
+        android:text="@string/modify_exercises"
         android:textSize="20dp"
         android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="150dp"
-        android:layout_height="70dp"
-        android:layout_gravity="center_vertical|center_horizontal"
-        android:background="@drawable/button_orange"
-        android:text="@string/progress_report"
-        android:textSize="20dp"
-        android:textStyle="bold" />
-    <Button
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2" >
+    </LinearLayout>
+    
+  	<Button
         android:id="@+id/button0"
         android:layout_gravity="right"
         android:layout_width="70dp"
@@ -97,10 +94,11 @@
         android:textStyle="bold" />
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
+        android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="2" >
     </LinearLayout>
-
+       
+        
 </LinearLayout>

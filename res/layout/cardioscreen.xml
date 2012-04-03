@@ -13,16 +13,15 @@
         android:textColor="#ff8c00"
         android:textStyle="bold"/>
     <CheckBox
-        android:id="@+id/checkBox1"
+        android:id="@+id/cardioscreen_checkbox_run"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Run" 
         android:textColor="#ff8c00"
-        android:textSize="20dp"
-        android:textStyle="bold"/>
+        android:textSize="20dp"/>
 
     <CheckBox
-        android:id="@+id/checkBox2"
+        android:id="@+id/cardioscreen_checkbox_swim"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#ff8c00"
@@ -30,7 +29,7 @@
         android:text="Swim" />
 
     <CheckBox
-        android:id="@+id/checkBox3"
+        android:id="@+id/cardioscreen_checkbox_bike"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#ff8c00"
@@ -38,7 +37,15 @@
         android:text="Bike" />
 
     <CheckBox
-        android:id="@+id/checkBox4"
+        android:id="@+id/cardioscreen_checkbox_elliptical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ff8c00"
+        android:textSize="20dp"
+        android:text="Elliptical" />
+
+    <CheckBox
+        android:id="@+id/cardioscreen_checkbox_walk"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#ff8c00"
@@ -46,7 +53,7 @@
         android:text="Walk" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/cardioscreen_button_next"
         android:layout_width="67dp"
         android:layout_height="38dp"
         android:layout_marginLeft="250dp"

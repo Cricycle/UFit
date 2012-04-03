@@ -14,26 +14,28 @@
         android:text="Please select your fitness goal:" />
 
 
-    <Button
-        android:id="@+id/button1"
+    <ufit.global.SwitchButton
+        android:id="@+id/goalselection_button_strength"
         android:layout_width="match_parent"
         android:layout_height="140dp"
-        android:background="@drawable/strength" />  
+        android:onClick="toggle"
+        android:background="@drawable/strength_off"/>  
      
-    <Button
-        android:id="@+id/button2"
+    <ufit.global.SwitchButton
+        android:id="@+id/goalselection_button_cardio"
         android:layout_width="match_parent"
         android:layout_height="140dp"
-        android:background="@drawable/card" />
+        android:onClick="toggle"
+        android:background="@drawable/cardio_off" />
      
-    <Button
-        android:id="@+id/button3"
+    <ufit.global.SwitchButton
+        android:id="@+id/goalselection_button_general"
         android:layout_width="match_parent"
         android:layout_height="140dp"
-        android:background="@drawable/gen" />
-
+        android:onClick="toggle"
+        android:background="@drawable/general_off" />
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/goalselection_button_next"
         android:layout_width="85dp"
         android:layout_height="match_parent"
         android:text="Next" 

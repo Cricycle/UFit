@@ -1,4 +1,4 @@
-package UFit.DatabaseUtilities;
+package ufit.DatabaseUtilities;
 
 import java.io.IOException;
 import java.util.ArrayList;

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:focusable="false" >
+
+    <TextView
+        android:id="@+id/profile_textview_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        android:text="Name:"
+        android:textColor="#ff8c00"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/profile_textview_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/profile_textview_name"
+        android:layout_margin="10dp"
+        android:text="Birthday:"
+        android:textColor="#ff8c00"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/profile_textview_curweight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/profile_birthdaypicker"
+        android:layout_margin="10dp"
+        android:text="Current Weight (lbs.):"
+        android:textColor="#ff8c00"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/profile_textview_height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/profile_textview_targetweight"
+        android:layout_margin="10dp"
+        android:text="Height (ft, in):"
+        android:textColor="#ff8c00"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/profile_textview_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/profile_textview_height"
+        android:layout_margin="10dp"
+        android:text="Gender:"
+        android:textColor="#ff8c00"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/profile_button_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="2dp"
+        android:text="Next" />
+
+    <EditText
+        android:id="@+id/profile_edittext_name"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/profile_textview_name"
+        android:inputType="textPersonName" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/profile_edittext_curweight"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/profile_edittext_targetweight"
+        android:layout_alignRight="@+id/profile_button_next"
+        android:layout_below="@+id/profile_birthdaypicker"
+        android:layout_toRightOf="@+id/profile_textview_curweight"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/profile_edittext_height_feet"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_edittext_targetweight"
+        android:layout_toRightOf="@+id/profile_textview_height"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/profile_edittext_height_inches"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/profile_edittext_height_feet"
+        android:layout_toRightOf="@+id/profile_edittext_height_feet"
+        android:inputType="number" />
+
+    <Spinner
+        android:id="@+id/profile_spinner_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_edittext_height_feet"
+        android:layout_toRightOf="@+id/profile_textview_gender" >
+
+    </Spinner>
+
+    <DatePicker
+        android:id="@+id/profile_birthdaypicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/profile_textview_age"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/profile_textview_age" />
+
+    <TextView
+        android:id="@+id/profile_textview_targetweight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/profile_textview_curweight"
+        android:layout_margin="10dp"
+        android:text="Target Weight (lbs.)"
+        android:textColor="#ff8c00"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/profile_edittext_targetweight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/profile_edittext_curweight"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/profile_textview_curweight"
+        android:layout_margin="2dp"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/profile_textview_bmi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/profile_textview_gender"
+        android:layout_below="@+id/profile_spinner_gender"
+        android:text="BMI: "
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ff8c00"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/profile_textview_bmidisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/profile_spinner_gender"
+        android:layout_below="@+id/profile_spinner_gender"
+        android:text="zz"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ff8c00"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

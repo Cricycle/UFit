@@ -1,4 +1,4 @@
-package UFit.DatabaseUtilities;
+package ufit.DatabaseUtilities;
 
 
 import java.io.File;
@@ -9,14 +9,10 @@ import java.io.OutputStream;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.res.AssetManager;
 import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 public class MyDatabaseHelper extends SQLiteOpenHelper {
 

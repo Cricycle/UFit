@@ -1,9 +1,6 @@
-package UFit.DatabaseUtilities;
-
-import java.util.ArrayList;
+package ufit.DatabaseUtilities;
 
 import android.graphics.drawable.Drawable;
-import android.text.TextUtils.SimpleStringSplitter;
 
 public class ExerciseInfo {
 

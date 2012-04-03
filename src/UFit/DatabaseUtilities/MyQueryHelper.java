@@ -1,4 +1,4 @@
-package UFit.DatabaseUtilities;
+package ufit.DatabaseUtilities;
 
 import java.util.ArrayList;
 
