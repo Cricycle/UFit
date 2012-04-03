@@ -23,6 +23,5 @@ public class StrengthScreen extends Activity implements OnClickListener {
 			Intent intent = new Intent(this,MachineSelection.class);
 			this.startActivity(intent);
 		}
-
-}
+	}
 }
