@@ -30,7 +30,8 @@ public class HomeScreen extends Activity //implements OnClickListener
 		
 		//#profile
 
-/*		int workoutType;
+/*		// DO NOT RUN THIS UNTIL OUR DATABSE IS COMPLETE AND IN THE ASSETS FOLDER
+ * 		int workoutType;
 		workoutType = profile.getWorkoutType(); //I have assumed the returned int matches the one in the DB
 		
 		int workoutGroup; //don't know where any of this is saved or how to call it, or if its one item or a list.
