@@ -84,6 +84,25 @@ public class MyDbAdapter {
 		this.setEquipmentList(equipList);
 	}
 	
+	public MyDbAdapter(Context con, int type, int Group, int Skill, ArrayList<String> equipList)
+	{
+		myContext = con;
+		this.setExerciseType(Integer.toString(type));
+		this.setMuscleGroup(Integer.toString(Group));
+		this.setSkillLevel(Integer.toString(Skill));
+		this.setEquipmentList(equipList);
+	}
+	
+	public MyDbAdapter(Context con, int type, int Group, int Skill, ArrayList<String> equipList, ArrayList<Integer> exerciseList)
+	{
+		myContext = con;
+		this.setExerciseType(Integer.toString(type));
+		this.setMuscleGroup(Integer.toString(Group));
+		this.setSkillLevel(Integer.toString(Skill));
+		this.setEquipmentList(equipList);
+		this.setStoredExerciseIDs(exerciseList);
+	}
+	
 	public MyDbAdapter(Context con, int exerciseId)
 	{
 		myContext = con;
