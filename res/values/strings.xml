@@ -31,6 +31,7 @@
 	    <item>"M"</item>
 	    <item>"F"</item>
 	</string-array>
+<<<<<<< HEAD
 	<string name="modify_options_screen">mod profile temp</string>
 	<string name="modify_equipment">mod equip temp</string>
 	<string name="modify_exercises">modify exercises</string>
@@ -50,5 +51,7 @@
 	<string name="muscle_group_thu">muscle_group_thu</string>
 	<string name="muscle_group_fri">muscle_group_fri</string>
 	<string name="muscle_group_sat">muscle_group_sat</string>
+=======
+>>>>>>> 180cbc7875dbaee7cbc88a1c7fb8d34ad8510e83
 
 </resources>

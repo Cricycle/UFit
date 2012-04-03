@@ -1,8 +1,11 @@
 package ufit.profilecreation;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 
 import ufit.DatabaseUtilities.*;
+=======
+>>>>>>> 180cbc7875dbaee7cbc88a1c7fb8d34ad8510e83
 import ufit.global.MyApp;
 import ufit.namespace.R;
 import ufit.profile.Profile;
@@ -13,8 +16,11 @@ import android.widget.TextView;
 public class HomeScreen extends Activity //implements OnClickListener 
 {
 	private Profile profile;
+<<<<<<< HEAD
 	public  MyDbAdapter eDbAdaptor;
 	
+=======
+>>>>>>> 180cbc7875dbaee7cbc88a1c7fb8d34ad8510e83
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -26,6 +32,7 @@ public class HomeScreen extends Activity //implements OnClickListener
 		//View v = findViewById(R.id.create_profile);
 		//v.setOnClickListener(this);
 		
+<<<<<<< HEAD
 		//#profile
 
 /*		int workoutType;
@@ -75,6 +82,8 @@ public class HomeScreen extends Activity //implements OnClickListener
 		//end #profile
 		
 
+=======
+>>>>>>> 180cbc7875dbaee7cbc88a1c7fb8d34ad8510e83
 		
 	}
 
