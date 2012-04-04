@@ -1,12 +1,22 @@
 package ufit.global;
 
+import java.io.BufferedReader;
+import java.io.FileWriter;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+
 import ufit.profile.Profile;
 import android.app.Application;
 import android.content.Context;
+import android.widget.Toast;
 
 public class MyApp extends Application {
 	private int goal = 0;
 	private Profile profile;
+	private ArrayList<String> usernames = null;
+	private final String userFile = "usernames.txt"; //num at top indicates # of users
+										//each user name is stored on a separate line
 
 	public void setGoal(int n) {
 		goal = n;
@@ -17,39 +27,103 @@ public class MyApp extends Application {
 	
     public Profile getProfile()
     {
-    	if(profile == null)
+    	if(profile == null) {
     		profile = new Profile(this);
+    		loadUsernames();
+    	}
         return profile;
     }
-    public void setProfile(String username, Context context)
-    {
-        profile = Profile.loadProfile(username,context);
-    }
-    public void updateProfile(Context context) {
-    	profile = profile.extend(goal, context);
-    }
-}
-
-/*public class myProfile extends Application //need to specify as the application in the manifest
-{
-    private myProfile profile;
-    public Context getProfile()
-    {
-        return profile;
-    }
-    public myProfile()
-    {
-        profile = this;
+    private void loadUsernames() { //loads the usernames from the userFile.
+    	usernames = new ArrayList<String>();
+    	BufferedReader read = null;
+    	try {
+    		read = new BufferedReader(new InputStreamReader(openFileInput(userFile)));
+    		int numProfiles = Integer.parseInt(read.readLine());
+    		for(int i = 0; i < numProfiles; ++i) {
+    			usernames.add(read.readLine());
+    		}
+    	} catch(Exception e) {
+    		Toast.makeText(this, "Failed to load", Toast.LENGTH_SHORT).show();
+    		e.printStackTrace();
+    	} finally {
+    		if(read != null) {
+    			try{
+    	    		read.close();
+    	    	}catch(Exception e){e.printStackTrace();}
+    		}
+    	}
     }
     
+    public void saveUsernames() { //exists to initialize the user file.  unnecessary?
+    	if(usernames == null || usernames.size() == 0) {
+    		try {
+        		PrintWriter out = new PrintWriter(openFileOutput(userFile, Context.MODE_PRIVATE));
+        		out.write("0");
+        		out.close();
+    		} catch(Exception e) {
+    			e.printStackTrace();
+    		}
+    	}
+    }
+    
+    public void setProfile(String username, Context context)
+    {
+    	loadUsernames();
+    	if(isAUser(username)) {
+    		profile = new Profile(context);
+    		profile.setUsername(username);
+    		try {
+    			profile.loadProfile(username, context, openFileInput(profile.getFilename()));
+    		} catch(Exception e) {
+    			e.printStackTrace();
+    			Toast.makeText(this, "error loading profile", Toast.LENGTH_SHORT).show();
+    		}
+    	} else {
+    		//do nothing.  
+    	}
+    }
+    private boolean isAUser(String username) {
+    	return usernames.contains(username);
+	}
+	public void updateProfile(Context context) {
+    	profile = profile.extend(goal, context);
+    }
+	public void saveProfile() {
+		if(!isAUser(profile.getUsername())) {
+			addUser(profile.getUsername());
+		}
+		try{
+			profile.saveProfile(profile, openFileOutput(profile.getFilename(), Context.MODE_PRIVATE));
+		} catch(Exception e) {
+			e.printStackTrace();
+			Toast.makeText(this, "error savingprofile", Toast.LENGTH_SHORT).show();
+		}
+		Toast.makeText(this, "Saved profile: " + profile.getUsername(), Toast.LENGTH_SHORT).show();
+	}
+	private void addUser(String username) { //precondition: assumes that username is a new user!
+		usernames.add(username);
+		PrintWriter out = null;
+		int count = 0;
+		try {
+			out = new PrintWriter(openFileOutput(userFile, Context.MODE_PRIVATE));
+			out.println(usernames.size());
+			for(String s: usernames) {
+				out.println(s);
+				++count;
+			}
+			out.close();
+			out = null;
+			Toast.makeText(this, "there are " + count + " users", Toast.LENGTH_SHORT).show();
+		} catch (Exception e) {
+			Toast.makeText(this, "failed to add user", Toast.LENGTH_SHORT).show();
+			e.printStackTrace();
+		} finally {
+			if(out != null)
+				out.close();
+		}
+	}
+	public ArrayList<String> getUsernames() {
+		loadUsernames();
+		return usernames;
+	}
 }
-/* usage in another class
-  class Blah extends Activity  {
-      public void onCreate(Bundle b) {
-          ...
-          MyProfile curProfile =(MyProfile)getApplicationContext();
-          Profile p = curProfile.getProfile();
-          curProfile.setProfile("Albert", this);
-      }
-  }
-*/

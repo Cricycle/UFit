@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
@@ -39,6 +40,13 @@ public class CardioSelection extends Activity implements OnClickListener {
 		
 		curBox = (CheckBox) findViewById(R.id.cardioscreen_checkbox_walk);
 		curBox.setChecked(profile.getWalk());
+		
+		Button next = (Button) findViewById(R.id.cardioscreen_button_next);
+		if(profile.getWorkoutType() == 2) { //2 is cardio, so this is the last stage for cardio.
+			next.setText("Finish");
+		} else {
+			next.setText("Next");
+		}
 	}
 
 	private void setOnClickListenerForViews() {
@@ -51,8 +59,9 @@ public class CardioSelection extends Activity implements OnClickListener {
 		if(v.getId() == R.id.cardioscreen_button_next){
 			//determine which screen to continue to based off of the workoutType of the profile, or the goal.
 			if(profile.getWorkoutType() == 2) { //indicates just cardio.
-				//go straight to home screen.
-				Intent intent = new Intent(this,HomeScreen.class);
+				//go straight to home screen, via the selection screen.
+				Intent intent = new Intent(this,Selection.class);
+				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP).setAction("Go to Home");
 				this.startActivity(intent);
 				finish();
 			} else if(profile.getWorkoutType() == 3) { //indicates general

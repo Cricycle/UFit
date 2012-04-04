@@ -2,27 +2,26 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
-    android:background="@drawable/background">
-
+    android:background="@drawable/background"
+    android:orientation="vertical" >
+
     <ViewAnimator
         android:id="@+id/viewAnimator1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-
     </ViewAnimator>
-
+
     <TextView
         android:id="@+id/textView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:gravity="center"
         android:text="Welcome to UFit"
-        android:textStyle ="bold"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#ff8c00"
         android:textSize="36dp"
-        android:layout_marginBottom="20dp"/>
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView2"
@@ -32,19 +31,24 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#ff8c00"
         android:textSize="20dp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="61dp"
+        android:layout_weight="0.97"
+        android:drawSelectorOnTop="false"
+        android:clickable="true" />
+
     <Button
-        android:id="@+id/create_profile"
+        android:id="@+id/selection_button_createprofile"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:text="Create New Profile" 
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:layout_marginTop="275dp"
         android:background="@drawable/buttontheme"
         android:onClick="onClickd"
-        
-        />
+        android:text="Create New Profile"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
 </LinearLayout>

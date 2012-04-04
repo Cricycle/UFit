@@ -1,7 +1,8 @@
 package ufit.profile;
 import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -104,10 +105,10 @@ public class Profile
 		
 		return p;
 	}
-	public void saveProfile(Profile p) 
+	public void saveProfile(Profile p, FileOutputStream file) 
 	{
 		try{
-			PrintWriter out = new PrintWriter(new FileWriter(p.username + ".txt"));
+			PrintWriter out = new PrintWriter(file);
 			out.print(p.getWorkoutType() + " ");
 			out.print(p.getUsername() + " ");
 			out.print(p.getHeightInches() + " ");
@@ -155,10 +156,10 @@ public class Profile
 			out.close();
 	  }catch (Exception e){System.out.println("File Error: Save Profile");}
 	}
-	public final static Profile loadProfile(String un, Context context)
+	public final Profile loadProfile(String un, Context context, FileInputStream file)
 	{
 		try{
-		  BufferedReader b = new BufferedReader(new FileReader(un + ".txt"));
+		  BufferedReader b = new BufferedReader(new InputStreamReader(file));
 	
 		  String line1 = b.readLine();
 		  Profile p = null;
@@ -513,6 +514,10 @@ public class Profile
 	public void setBike(boolean b){}
 	public void setWalk(boolean w){}
 	public void setElliptical(boolean e){}
+
+	public String getFilename() {
+		return username + "Z.txt";
+	}
 	
 	
 }
