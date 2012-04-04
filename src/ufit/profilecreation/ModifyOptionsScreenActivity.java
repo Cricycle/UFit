@@ -6,17 +6,27 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.TextView;
+import ufit.global.MyApp;
 import ufit.namespace.R;
+import ufit.profile.Profile;
 
 public class ModifyOptionsScreenActivity extends Activity implements OnClickListener {
     /** Called when the activity is first created. */
+	private Profile profile;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.modifyoptionsscreen);
         initialiseButtons();
+        loadInformation();
         
     }
+	private void loadInformation() {
+		profile = ((MyApp)getApplication()).getProfile();
+		TextView name = (TextView) findViewById(R.id.textview_name);
+		name.setText(profile.getUsername());
+	}
     public void initialiseButtons() {
         Button mod_ex = (Button) findViewById(R.id.mod_exercises);
         Button mod_go = (Button) findViewById(R.id.mod_goals);
