@@ -48,7 +48,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/home_today"
         android:layout_width="150dp"
         android:layout_height="70dp"
         android:layout_gravity="center_vertical|center_horizontal"
@@ -58,7 +58,7 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/home_weekly"
         android:layout_width="150dp"
         android:layout_height="70dp"
         android:layout_gravity="center_vertical|center_horizontal"
@@ -68,7 +68,7 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/home_modify"
         android:layout_width="150dp"
         android:layout_height="70dp"
         android:layout_gravity="center_vertical|center_horizontal"
@@ -78,7 +78,7 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/home_progress"
         android:layout_width="150dp"
         android:layout_height="70dp"
         android:layout_gravity="center_vertical|center_horizontal"

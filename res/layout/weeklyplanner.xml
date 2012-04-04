@@ -21,10 +21,11 @@
         android:orientation="vertical" >
         
         <TextView
+        android:id="@+id/weekly_thisweek"      
+        android:text="This Week"      
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="THIS WEEK"
         android:textColor="#ff8c00"
         android:textSize="25dp"
         android:textStyle="bold" />
@@ -34,12 +35,12 @@
     <TableLayout
         android:id="@+id/tableLayout1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dip"
         android:layout_weight="0.83"
         android:stretchColumns="1" >
 
         <TableRow>
-            <TextView
+            <Button
                 android:id="@+id/sunday"
                 android:layout_width="60dp"
                 android:layout_height="50dp"
@@ -61,7 +62,7 @@
         </TableRow>
 
         <TableRow>
-            <TextView
+            <Button
                 android:id="@+id/monday"
                 android:layout_width="60dp"
                 android:layout_height="50dp"
@@ -81,7 +82,7 @@
                 android:textStyle="bold" />
         </TableRow>
         <TableRow>
-            <TextView
+            <Button
                 android:id="@+id/tuesday"
                 android:layout_width="60dp"
                 android:layout_height="50dp"
@@ -102,7 +103,7 @@
         </TableRow>
 
         <TableRow>
-            <TextView
+            <Button
                 android:id="@+id/wednesday"
                 android:layout_width="60dp"
                 android:layout_height="50dp"
@@ -122,7 +123,7 @@
                 android:textStyle="bold" />
         </TableRow>
         <TableRow>
-            <TextView
+            <Button
                 android:id="@+id/thursday"
                 android:layout_width="60dp"
                 android:layout_height="50dp"
@@ -143,7 +144,7 @@
         </TableRow>
 
         <TableRow>
-            <TextView
+            <Button
                 android:id="@+id/friday"
                 android:layout_width="60dp"
                 android:layout_height="50dp"
@@ -163,7 +164,7 @@
                 android:textStyle="bold" />
         </TableRow>
         <TableRow>
-            <TextView
+            <Button
                 android:id="@+id/saturday"
                 android:layout_width="60dp"
                 android:layout_height="50dp"

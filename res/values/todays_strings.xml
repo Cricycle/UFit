@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="todays_exercises">Today\'s Exercises</string>
+    <string name="muscle_group">Chest and Triceps</string>
+    <string name="exercise1">exercise1</string>
+    <string name="exercise2">exercise2</string>
+    <string name="exercise3">exercise3</string>
+    <string name="exercise4">exercise4</string>
+    <string name="exercise5">exercise5</string>
+    <string name="exercise6">exercise6</string>
+    
+</resources>

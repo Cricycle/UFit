@@ -91,7 +91,23 @@
 				<category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
+        <activity
+            android:name="ufit.profilecreation.TodaysExercisesActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.UFit.namespace.todaysexercises" />
+				<category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="ufit.profilecreation.WeeklyPlannerActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.UFit.namespace.WeeklyPlannerActivity" />
+				<category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         
     </application>
 

@@ -8,10 +8,14 @@ import ufit.global.MyApp;
 import ufit.namespace.R;
 import ufit.profile.Profile;
 import android.app.Activity;
+import android.view.View.OnClickListener;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
-public class HomeScreen extends Activity //implements OnClickListener 
+public class HomeScreen extends Activity implements OnClickListener 
 {
 	private Profile profile;
 
@@ -22,6 +26,7 @@ public class HomeScreen extends Activity //implements OnClickListener
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.homescreen);
+		initializeButtons();
 		profile = ((MyApp)getApplication()).getProfile();
 		
 		loadInformation();
@@ -84,14 +89,38 @@ public class HomeScreen extends Activity //implements OnClickListener
 		TextView name = (TextView) findViewById(R.id.homescreen_textview_name);
 		name.setText(profile.getUsername());
 	}
-//	public void onClick(View arg0) {
-	//	if(arg0.getId() == R.id.create_profile){
-		//	Intent intent = new Intent(this,Profile.class);
-			//this.startActivity(intent);
-	//	}
-		
-//	}
 	
-	
+	//@Override
+	public void onClick(View v) {
+		if(v.getId() == R.id.home_today){
+			Intent intent = new Intent(this,TodaysExercisesActivity.class);
+			this.startActivity(intent);
+		}  else if(v.getId() == R.id.home_weekly) {
+			Intent intent = new Intent(this,WeeklyPlannerActivity.class);
+			this.startActivity(intent);
+		} else if (v.getId() == R.id.home_modify) {
+			Intent intent = new Intent(this,SkillSelection.class);
+			this.startActivity(intent);
+		} else if (v.getId() == R.id.home_progress) {
+			Intent intent = new Intent(this,SkillSelection.class);
+			this.startActivity(intent);
+		} else if (v.getId() == R.id.button0) {
+			Intent intent = new Intent(this,SkillSelection.class);
+			this.startActivity(intent);
+		}
+	}
+    public void initializeButtons() {
+        Button homeToday = (Button) findViewById(R.id.home_today);
+        Button homeWeekly = (Button) findViewById(R.id.home_weekly);
+        Button homeModify = (Button) findViewById(R.id.home_modify);
+        Button homeProgress = (Button) findViewById(R.id.home_progress);
+        
+        // button goes to home screen
+        Button button0 = (Button) findViewById(R.id.button0);
+        homeToday.setOnClickListener(this);
+        homeWeekly.setOnClickListener(this);
+        homeModify.setOnClickListener(this);
+        homeProgress.setOnClickListener(this);
 
+    }    
 }
