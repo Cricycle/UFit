@@ -60,7 +60,7 @@
        android:layout_height="wrap_content"/>
     
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/weeklyplanner"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"

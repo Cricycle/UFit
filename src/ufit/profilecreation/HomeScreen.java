@@ -99,7 +99,7 @@ public class HomeScreen extends Activity implements OnClickListener
 			Intent intent = new Intent(this,WeeklyPlannerActivity.class);
 			this.startActivity(intent);
 		} else if (v.getId() == R.id.home_modify) {
-			Intent intent = new Intent(this,SkillSelection.class);
+			Intent intent = new Intent(this,ModifyOptionsScreenActivity.class);
 			this.startActivity(intent);
 		} else if (v.getId() == R.id.home_progress) {
 			Intent intent = new Intent(this,SkillSelection.class);
