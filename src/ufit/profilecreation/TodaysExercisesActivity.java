@@ -79,6 +79,18 @@ public class TodaysExercisesActivity extends Activity implements OnClickListener
     	
     	}
     }
-     
+    
+    public void initialiseButtons() {
+        Button weekly = (Button) findViewById(R.id.weeklyplanner);
+        weekly.setOnClickListener(this);
+        
+    }    
+    //@Override
+	public void onClick(View v) {
+		if(v.getId() == R.id.weeklyplanner){
+			Intent intent = new Intent(this,WeeklyPlannerActivity.class);
+			this.startActivity(intent);	        
+		}
+    }
     
 }
