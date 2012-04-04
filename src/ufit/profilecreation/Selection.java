@@ -26,7 +26,7 @@ public class Selection extends ListActivity implements OnClickListener {
 	private ArrayList<Button> toBePut;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub fdsfd
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 		application = (MyApp) getApplication();
@@ -35,7 +35,7 @@ public class Selection extends ListActivity implements OnClickListener {
 		View v = findViewById(R.id.selection_button_createprofile);
 		v.setOnClickListener(this);
 		
-		
+		 
 	}
 
 	private void loadUserNameDisplay() {

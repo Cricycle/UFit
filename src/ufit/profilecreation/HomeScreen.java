@@ -33,7 +33,7 @@ public class HomeScreen extends Activity implements OnClickListener
 		
 		loadInformation();
 		setOnClickListenerForViews();
-		//utilizeDatabase();//DO NOT RUN THIS UNTIL OUR DATABSE IS COMPLETE AND IN THE ASSETS FOLDER
+		//utilizeDatabase();//DO NOT RUN THIS UNTIL OUR D ATABSE IS COMPLETE AND IN THE ASSETS FOLDER
 		
 		
 	}
