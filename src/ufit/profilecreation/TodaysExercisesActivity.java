@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -16,12 +17,13 @@ import android.widget.TextView;
 import ufit.namespace.R;
 
 
-public class TodaysExercisesActivity extends Activity  {
+public class TodaysExercisesActivity extends Activity implements OnClickListener {
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.todaysexercises);
+        initialiseButtons();
         
         //name of items
         String[] items = {"red", "blue","green"};
@@ -29,21 +31,6 @@ public class TodaysExercisesActivity extends Activity  {
         ListView listView = (ListView) findViewById(R.id.ListViewId);
         listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items));
         
-        
-        
-        
-        
-        //go to weekly planner button
-        final Button button1 = (Button) findViewById(R.id.button1);
- 		button1.setOnClickListener(new View.OnClickListener() {
- 		public void onClick(View v) {
- 			// Perform action on click
- 			// go to weekly planner
- 			Intent intent = new Intent (TodaysExercisesActivity.this, TodaysExercisesActivity.class);
- 			startActivity(intent);
- 		}
- 	});
-         
     }
     
     
