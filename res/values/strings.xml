@@ -51,6 +51,7 @@
 	<string name="muscle_group_thu">muscle_group_thu</string>
 	<string name="muscle_group_fri">muscle_group_fri</string>
 	<string name="muscle_group_sat">muscle_group_sat</string>
+	<string name="save">Save</string>
 
 
 </resources>
