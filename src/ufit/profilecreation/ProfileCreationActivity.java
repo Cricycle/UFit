@@ -81,7 +81,7 @@ public class ProfileCreationActivity extends Activity implements OnClickListener
 			Intent intent = new Intent(this,GoalSelection.class);
 			this.startActivity(intent);
 		} else if(!allInfoEntered) {
-			//somehow give message to enter info.
+			Toast.makeText(this, "You have not filled in all the forms yet", Toast.LENGTH_SHORT).show();
 		}
 	}
 	public boolean onKey(View v, int keyCode, KeyEvent event) {
