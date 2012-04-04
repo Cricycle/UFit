@@ -23,9 +23,9 @@ public class WeeklyPlannerActivity extends Activity  implements OnClickListener{
         setContentView(R.layout.weeklyplanner);
         initialiseButtons();
         
-        /*int thisWeek = new GregorianCalendar().get(Calendar.WEEK_OF_YEAR);
+        int thisWeek = new GregorianCalendar().get(Calendar.WEEK_OF_YEAR);
         TextView thisWeek2 = (TextView) findViewById(R.id.weekly_thisweek);
-		thisWeek2.setText(thisWeek);*/
+		thisWeek2.setText("Week " + Integer.toString(thisWeek));
  
     }
     public void initialiseButtons() {

@@ -117,6 +117,7 @@ public class HomeScreen extends Activity implements OnClickListener
         
         // button goes to home screen
         Button button0 = (Button) findViewById(R.id.button0);
+        button0.setOnClickListener(this);
         homeToday.setOnClickListener(this);
         homeWeekly.setOnClickListener(this);
         homeModify.setOnClickListener(this);
