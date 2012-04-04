@@ -98,7 +98,7 @@ public class MyApp extends Application {
 			e.printStackTrace();
 			Toast.makeText(this, "error savingprofile", Toast.LENGTH_SHORT).show();
 		}
-		Toast.makeText(this, "Saved profile: " + profile.getUsername(), Toast.LENGTH_SHORT).show();
+		//Toast.makeText(this, "Saved profile: " + profile.getUsername(), Toast.LENGTH_SHORT).show();
 	}
 	private void addUser(String username) { //precondition: assumes that username is a new user!
 		usernames.add(username);
@@ -113,7 +113,7 @@ public class MyApp extends Application {
 			}
 			out.close();
 			out = null;
-			Toast.makeText(this, "there are " + count + " users", Toast.LENGTH_SHORT).show();
+			//Toast.makeText(this, "there are " + count + " users", Toast.LENGTH_SHORT).show();
 		} catch (Exception e) {
 			Toast.makeText(this, "failed to add user", Toast.LENGTH_SHORT).show();
 			e.printStackTrace();

@@ -4,8 +4,8 @@
     android:layout_height="?android:attr/listPreferredItemHeight"
     android:padding="6dip">
     
-    <Button
-        android:id="@+id/listview_button"
+    <TextView
+        android:id="@+id/listview_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"

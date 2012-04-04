@@ -13,17 +13,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class HomeScreen extends Activity implements OnClickListener 
 {
 	private Profile profile;
-
+	private MyApp application;
 	public  MyDbAdapter eDbAdaptor;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.homescreen);
+		application = (MyApp)getApplication();
+		onNewIntent(getIntent());
 		profile = ((MyApp)getApplication()).getProfile();
 		//here, this is where we save the profile!
 		((MyApp)getApplication()).saveProfile();
@@ -101,6 +104,15 @@ public class HomeScreen extends Activity implements OnClickListener
 		
 	}
 	
+	protected void onNewIntent(Intent i) {
+		if(i.getAction() != null) {
+			String[] details = (i.getAction()).split(" ");
+			Toast.makeText(this, i.getAction(), Toast.LENGTH_SHORT).show();
+			if(details.length == 2 && details[0].equals("newprofile")) {
+			application.setProfile(details[1], this);
+			}
+		}
+	}
 	
 
 }

@@ -39,10 +39,10 @@ public class Selection extends ListActivity implements OnClickListener {
 	}
 
 	private void loadUserNameDisplay() {
-		Toast.makeText(this, "trying to load display", Toast.LENGTH_SHORT).show();
+		//Toast.makeText(this, "trying to load display", Toast.LENGTH_SHORT).show();
 		toBePut = new ArrayList<Button>();
 		ArrayList<String> usernames = application.getUsernames();
-		int count = 1;
+		/*int count = 1;
 		for(String name: usernames) {
 			Toast.makeText(this, "num usernames:" + count++ + name + "<<", Toast.LENGTH_SHORT).show();
 			Button b = new Button(this);
@@ -56,9 +56,9 @@ public class Selection extends ListActivity implements OnClickListener {
 			b.setLayoutParams(layout);
 			b.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.TOP);
 			toBePut.add(b);
-		}
+		}*/
 		
-		adapter = new MyListAdapter(this, R.layout.row, toBePut);
+		adapter = new MyListAdapter(this, R.layout.row, usernames);
 		setListAdapter(adapter);
 		
 		
@@ -69,11 +69,6 @@ public class Selection extends ListActivity implements OnClickListener {
 			Intent intent = new Intent(this,ProfileCreationActivity.class);
 			this.startActivity(intent);
 		} else { //this means it should be one of the dynamic buttons.
-			Button b = (Button) v.findViewById(R.id.listview_button);
-			application.setProfile(b.getText().toString(), this);
-			
-			Intent intent = new Intent(this, HomeScreen.class);
-			startActivity(intent);
 		}
 	}
 	
@@ -90,12 +85,12 @@ public class Selection extends ListActivity implements OnClickListener {
 	}
 }
 
-class MyListAdapter extends ArrayAdapter<Button>{//desperate gambit.
-	private ArrayList<Button> items;
+class MyListAdapter extends ArrayAdapter<String>{//desperate gambit.
+	private ArrayList<String> items;
 	private Context context;
 	private OnClickListener lis;
 	
-	public MyListAdapter(Context context, int textViewResourceId, ArrayList<Button> objects) {
+	public MyListAdapter(Context context, int textViewResourceId, ArrayList<String> objects) {
 		super(context, textViewResourceId, objects);
 		items = objects;
 		this.context = context;
@@ -107,19 +102,24 @@ class MyListAdapter extends ArrayAdapter<Button>{//desperate gambit.
 	
 	public View getView (int position, View convertView, ViewGroup parent) {
 		View v = convertView;
+        final String name = items.get(position);
 		if (v == null) {
             LayoutInflater vi = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             v = vi.inflate(R.layout.row, null);
+            v.setClickable(true);
+            v.setOnClickListener(new OnClickListener() {
+            	public void onClick(View v) {
+            		Intent intent = new Intent(context, HomeScreen.class);
+            		intent.setAction("newprofile " + name);
+            		context.startActivity(intent);
+            	}
+            	
+            });
         }
-        Button b = items.get(position);
-        if (b != null) {
-                Button bb = (Button) v.findViewById(R.id.listview_button);
-                bb.setText( b.getText() );
-                bb.setOnClickListener(lis);
-                bb.setClickable(true);
+        if (name != null) {
+                TextView text = (TextView) v.findViewById(R.id.listview_textview);
+                text.setText(name);
         }
-        v.setOnClickListener(lis);
-        v.setClickable(true);
         return v;
 	}
 }
