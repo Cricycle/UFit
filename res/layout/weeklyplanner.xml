@@ -40,6 +40,7 @@
 
         <TableRow>
             <TextView
+                android:id="@+id/sunday"
                 android:layout_width="60dp"
                 android:layout_height="50dp"
                 android:text="@string/sunday"
@@ -48,6 +49,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/muscle_group_sunday"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
@@ -60,6 +62,7 @@
 
         <TableRow>
             <TextView
+                android:id="@+id/monday"
                 android:layout_width="60dp"
                 android:layout_height="50dp"
                 android:text="@string/monday"
@@ -79,6 +82,7 @@
         </TableRow>
         <TableRow>
             <TextView
+                android:id="@+id/tuesday"
                 android:layout_width="60dp"
                 android:layout_height="50dp"
                 android:text="@string/tuesday"
@@ -99,6 +103,7 @@
 
         <TableRow>
             <TextView
+                android:id="@+id/wednesday"
                 android:layout_width="60dp"
                 android:layout_height="50dp"
                 android:text="@string/wednesday"
@@ -118,6 +123,7 @@
         </TableRow>
         <TableRow>
             <TextView
+                android:id="@+id/thursday"
                 android:layout_width="60dp"
                 android:layout_height="50dp"
                 android:text="@string/thursday"
@@ -138,6 +144,7 @@
 
         <TableRow>
             <TextView
+                android:id="@+id/friday"
                 android:layout_width="60dp"
                 android:layout_height="50dp"
                 android:text="@string/friday"
@@ -157,6 +164,7 @@
         </TableRow>
         <TableRow>
             <TextView
+                android:id="@+id/saturday"
                 android:layout_width="60dp"
                 android:layout_height="50dp"
                 android:text="@string/saturday"
