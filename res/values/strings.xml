@@ -32,12 +32,11 @@
 	    <item>"M"</item>
 	    <item>"F"</item>
 	</string-array>
-	<string name="modify_options_screen">mod profile temp</string>
-	<string name="modify_equipment">mod equip temp</string>
-	<string name="modify_exercises">modify exercises</string>
-	<string name="modify_goals">modify goals</string>
+	<string name="modify_options_screen">Modify Profile</string>
+	<string name="modify_equipment">Modify Equipments</string>
+	<string name="modify_exercises">Modify Exercises</string>
+	<string name="modify_goals">Modify goals</string>
 	<string name="weekly_planner">Weekly Planner</string>
-	<string name="muscle_group_sun">muscle_group_sun</string>
 	<string name="monday">Monday</string>
 	<string name="tuesday">Tuesday</string>
 	<string name="wednesday">Wednesday</string>
@@ -45,6 +44,7 @@
 	<string name="friday">Friday</string>
 	<string name="saturday">Saturday</string>
 	<string name="sunday">Sunday</string>
+	<string name="muscle_group_sun">muscle_group_sun</string>
 	<string name="muscle_group_mon">muscle_group_mon</string>
 	<string name="muscle_group_tue">muscle_group_tue</string>
 	<string name="muscle_group_wed">muscle_group_wed</string>
