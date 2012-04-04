@@ -36,7 +36,7 @@ public class ModifyOptionsScreenActivity extends Activity implements OnClickList
 			Intent intent = new Intent(this,WeeklyPlannerActivity.class);
 			this.startActivity(intent);	        
 		} else if(v.getId() == R.id.mod_equip){
-			Intent intent = new Intent(this,WeeklyPlannerActivity.class);
+			Intent intent = new Intent(this,MachineSelection.class);
 			this.startActivity(intent);	        
 		} else if(v.getId() == R.id.button0){
 			Intent intent = new Intent(this,HomeScreen.class);
