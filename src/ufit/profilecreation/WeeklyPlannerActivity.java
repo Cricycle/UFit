@@ -20,22 +20,25 @@ public class WeeklyPlannerActivity extends Activity  implements OnClickListener{
         setContentView(R.layout.weeklyplanner);
         initialiseButtons();
         
+        /*
+         * Current week, currently unused, not in XML file 
         int thisWeek = new GregorianCalendar().get(Calendar.WEEK_OF_YEAR);
         TextView thisWeek2 = (TextView) findViewById(R.id.weekly_thisweek);
-		thisWeek2.setText("Week " + Integer.toString(thisWeek));
+		thisWeek2.setText("Week " + Integer.toString(thisWeek)); */
+        
  
     }
     public void initialiseButtons() {
-        Button exercisesSunday = (Button) findViewById(R.id.sunday);
-        Button exercisesMonday = (Button) findViewById(R.id.monday);
-        Button exercisesTuesday = (Button) findViewById(R.id.tuesday);
-        Button exercisesWednesday = (Button) findViewById(R.id.wednesday);
-        Button exercisesThursday = (Button) findViewById(R.id.thursday);
-        Button exercisesFriday = (Button) findViewById(R.id.friday);
-        Button exercisesSaturday = (Button) findViewById(R.id.saturday);
+        Button exercisesSunday = (Button) findViewById(R.id.planner_button_sunday);
+        Button exercisesMonday = (Button) findViewById(R.id.planner_button_monday);
+        Button exercisesTuesday = (Button) findViewById(R.id.planner_button_tuesday);
+        Button exercisesWednesday = (Button) findViewById(R.id.planner_button_wednesday);
+        Button exercisesThursday = (Button) findViewById(R.id.planner_button_thursday);
+        Button exercisesFriday = (Button) findViewById(R.id.planner_button_friday);
+        Button exercisesSaturday = (Button) findViewById(R.id.planner_button_saturday);
 
         // button goes to home screen
-        final Button button0 = (Button) findViewById(R.id.button0);
+        final Button button0 = (Button) findViewById(R.id.planner_button_back);
         button0.setOnClickListener(this);
         
         exercisesSunday.setOnClickListener(this);
@@ -49,25 +52,25 @@ public class WeeklyPlannerActivity extends Activity  implements OnClickListener{
     }    
     //@Override
 	public void onClick(View v) {
-		if(v.getId() == R.id.sunday){
+		if(v.getId() == R.id.planner_button_sunday){
 			Intent intent = new Intent(this,SkillSelection.class);
 			this.startActivity(intent);	        
-	    }else if(v.getId() == R.id.monday) {
+	    }else if(v.getId() == R.id.planner_button_monday) {
 	    	Intent intent = new Intent(this,SkillSelection.class);
 			this.startActivity(intent);			
-		} else if (v.getId() == R.id.tuesday) {
+		} else if (v.getId() == R.id.planner_button_tuesday) {
 			Intent intent = new Intent(this,SkillSelection.class);
 			this.startActivity(intent);			
-		} else if(v.getId() == R.id.wednesday) {
+		} else if(v.getId() == R.id.planner_button_wednesday) {
 			Intent intent = new Intent(this,SkillSelection.class);
 			this.startActivity(intent);
-		} else if (v.getId() == R.id.thursday) {
+		} else if (v.getId() == R.id.planner_button_thursday) {
 			Intent intent = new Intent(this,SkillSelection.class);
 			this.startActivity(intent);
-		} else if (v.getId() == R.id.friday) {
+		} else if (v.getId() == R.id.planner_button_friday) {
 			Intent intent = new Intent(this,SkillSelection.class);
 			this.startActivity(intent);
-		} else if (v.getId() == R.id.saturday) {
+		} else if (v.getId() == R.id.planner_button_saturday) {
 			Intent intent = new Intent(this,SkillSelection.class);
 			this.startActivity(intent);
 		} else if (v.getId() == R.id.button0){

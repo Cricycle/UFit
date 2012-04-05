@@ -29,14 +29,17 @@ public class HomeScreen extends Activity implements OnClickListener
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.homescreen);
 		initializeButtons();
+		
 		application = (MyApp)getApplication();
 		onNewIntent(getIntent());
+		
 		profile = ((MyApp)getApplication()).getProfile();
+		
 		//here, this is where we save the profile!
 		((MyApp)getApplication()).saveProfile();
 		
-		loadInformation();
-		setOnClickListenerForViews();
+		loadInformation();		
+		
 		//utilizeDatabase();//DO NOT RUN THIS UNTIL OUR D ATABSE IS COMPLETE AND IN THE ASSETS FOLDER
 		
 		
@@ -89,10 +92,6 @@ public class HomeScreen extends Activity implements OnClickListener
 		eDbAdaptor.close();
 	}
 
-	private void setOnClickListenerForViews() {
-		View v = findViewById(R.id.homescreen_button_modify);
-		v.setOnClickListener(this);
-	}
 
 	private void loadInformation() {
 		TextView name = (TextView) findViewById(R.id.homescreen_textview_name);
@@ -111,13 +110,13 @@ public class HomeScreen extends Activity implements OnClickListener
 	
 	//@Override
 	public void onClick(View v) {
-		if(v.getId() == R.id.home_today){
+		if(v.getId() == R.id.homescreen_button_todaysexercises){
 			Intent intent = new Intent(this,TodaysExercisesActivity.class);
 			this.startActivity(intent);
-		}  else if(v.getId() == R.id.home_weekly) {
+		}  else if(v.getId() == R.id.homescreen_button_weeksexercises) {
 			Intent intent = new Intent(this,WeeklyPlannerActivity.class);
 			this.startActivity(intent);
-		} else if (v.getId() == R.id.home_modify) {
+		} else if (v.getId() == R.id.homescreen_button_modify) {
 			Intent intent = new Intent(this,ModifyOptionsScreenActivity.class);
 			this.startActivity(intent);
 		} else if (v.getId() == R.id.home_progress) {
@@ -129,18 +128,16 @@ public class HomeScreen extends Activity implements OnClickListener
 		}
 	}
     public void initializeButtons() {
-        Button homeToday = (Button) findViewById(R.id.home_today);
-        Button homeWeekly = (Button) findViewById(R.id.home_weekly);
-        Button homeModify = (Button) findViewById(R.id.home_modify);
+        Button homeToday = (Button) findViewById(R.id.homescreen_button_todaysexercises);
+        Button homeWeekly = (Button) findViewById(R.id.homescreen_button_weeksexercises);
+        Button homeModify = (Button) findViewById(R.id.homescreen_button_modify);
         Button homeProgress = (Button) findViewById(R.id.home_progress);
-        
-        // button goes to home screen
         Button button0 = (Button) findViewById(R.id.button0);
+
         button0.setOnClickListener(this);
         homeToday.setOnClickListener(this);
         homeWeekly.setOnClickListener(this);
         homeModify.setOnClickListener(this);
         homeProgress.setOnClickListener(this);
-
     }    
 }
