@@ -40,7 +40,7 @@ public class TodaysExercisesActivity extends Activity implements OnClickListener
     }
     
     private void loadInformation(String s) {
-		TextView name = (TextView) findViewById(R.id.today_day);
+		TextView name = (TextView) findViewById(R.id.today_day);	// loads today's date into title 
 		name.setText(s+"'s Exercises");
 	}
     public String getBundleString(Bundle b, String key, String def) // checks bundle if null onot
