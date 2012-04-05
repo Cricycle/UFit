@@ -19,6 +19,7 @@ public class WeeklyPlannerActivity extends Activity  implements OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.weeklyplanner);
         initialiseButtons();
+       
         
         /*
          * Current week, currently unused, not in XML file 
@@ -53,26 +54,54 @@ public class WeeklyPlannerActivity extends Activity  implements OnClickListener{
     //@Override
 	public void onClick(View v) {
 		if(v.getId() == R.id.planner_button_sunday){
-			Intent intent = new Intent(this,SkillSelection.class);
-			this.startActivity(intent);	        
+			Intent intent = new Intent(this,TodaysExercisesActivity.class);
+			Bundle b = new Bundle();
+			b.putString("day", "sunday");
+			intent.putExtras(b);
+			this.startActivity(intent);
+			finish();
 	    }else if(v.getId() == R.id.planner_button_monday) {
-	    	Intent intent = new Intent(this,SkillSelection.class);
-			this.startActivity(intent);			
+	    	Intent intent = new Intent(this,TodaysExercisesActivity.class);
+			Bundle b = new Bundle();
+			b.putString("day", "monday");
+			intent.putExtras(b);
+			this.startActivity(intent);
+			finish();		
 		} else if (v.getId() == R.id.planner_button_tuesday) {
-			Intent intent = new Intent(this,SkillSelection.class);
-			this.startActivity(intent);			
+			Intent intent = new Intent(this,TodaysExercisesActivity.class);
+			Bundle b = new Bundle();
+			b.putString("day", "tuesday");
+			intent.putExtras(b);
+			this.startActivity(intent);
+			finish();		
 		} else if(v.getId() == R.id.planner_button_wednesday) {
-			Intent intent = new Intent(this,SkillSelection.class);
+			Intent intent = new Intent(this,TodaysExercisesActivity.class);
+			Bundle b = new Bundle();
+			b.putString("day", "wednesday");
+			intent.putExtras(b);
 			this.startActivity(intent);
+			finish();
 		} else if (v.getId() == R.id.planner_button_thursday) {
-			Intent intent = new Intent(this,SkillSelection.class);
+			Intent intent = new Intent(this,TodaysExercisesActivity.class);
+			Bundle b = new Bundle();
+			b.putString("day", "thursday");
+			intent.putExtras(b);
 			this.startActivity(intent);
+			finish();
 		} else if (v.getId() == R.id.planner_button_friday) {
-			Intent intent = new Intent(this,SkillSelection.class);
+			Intent intent = new Intent(this,TodaysExercisesActivity.class);
+			Bundle b = new Bundle();
+			b.putString("day", "friday");
+			intent.putExtras(b);
 			this.startActivity(intent);
+			finish();
 		} else if (v.getId() == R.id.planner_button_saturday) {
-			Intent intent = new Intent(this,SkillSelection.class);
+			Intent intent = new Intent(this,TodaysExercisesActivity.class);
+			Bundle b = new Bundle();
+			b.putString("day", "saturday");
+			intent.putExtras(b);
 			this.startActivity(intent);
+			finish();
 		} else if (v.getId() == R.id.button0){
 			Intent intent = new Intent (this, HomeScreen.class);
 			startActivity(intent);

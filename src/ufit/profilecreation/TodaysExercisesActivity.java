@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 import ufit.namespace.R;
 
 
@@ -25,6 +26,11 @@ public class TodaysExercisesActivity extends Activity implements OnClickListener
         setContentView(R.layout.todaysexercises);
         initialiseButtons();
         
+        // pass in current day
+        Bundle b = getIntent().getExtras();
+        String whatDay = getBundleString(b,"day","today");
+        Toast.makeText(this,whatDay, Toast.LENGTH_SHORT).show();
+        
         //name of items
         String[] items = {"red", "blue","green"};
 
@@ -33,8 +39,14 @@ public class TodaysExercisesActivity extends Activity implements OnClickListener
         
     }
     
-    
-    
+   
+    public String getBundleString(Bundle b, String key, String def) // checks bundle if null onot
+    {
+        String value = b.getString(key);
+        if (value == null)
+            value = def;
+        return value;
+    }
     
     public class ExercisesAdapter extends ArrayAdapter<ListExercises>{
     	private ArrayList<ListExercises> exercises;
