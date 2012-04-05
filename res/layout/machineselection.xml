@@ -17,16 +17,16 @@
         android:textStyle="bold"/>
 
     <CheckBox
-        android:id="@+id/checkBox1"
+        android:id="@+id/machineselect_checkbox_dumbbells"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/dumbells" 
+        android:text="@string/dumbbells"
         android:textColor="#ff8c00"
         android:textSize="20dp"
         android:textStyle="bold"/>
 
     <CheckBox
-        android:id="@+id/checkBox2"
+        android:id="@+id/machineselect_checkbox_barbells"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/barbells" 
@@ -35,65 +35,65 @@
         android:textStyle="bold"/>
 
     <CheckBox
-        android:id="@+id/checkBox3"
+        android:id="@+id/machineselect_checkbox_benchpress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/machine1"
+        android:text="@string/benchpress"
         android:textColor="#ff8c00"
         android:textSize="20dp"
         android:textStyle="bold"/>
 
     <CheckBox
-        android:id="@+id/checkBox4"
+        android:id="@+id/machineselect_checkbox_chestfly"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/machine2" 
+        android:text="@string/chestfly" 
         android:textColor="#ff8c00"
         android:textSize="20dp"
         android:textStyle="bold"/>
 
     <CheckBox
-        android:id="@+id/checkBox5"
+        android:id="@+id/machineselect_checkbox_shoulderpress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/machine3" 
+        android:text="@string/shoulderpress" 
         android:textColor="#ff8c00"
         android:textSize="20dp"
         android:textStyle="bold"/>
 
     <CheckBox
-        android:id="@+id/checkBox6"
+        android:id="@+id/machineselect_checkbox_legpress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/machine4" 
+        android:text="@string/legpress" 
         android:textColor="#ff8c00"
         android:textSize="20dp"
         android:textStyle="bold"/>
 
     <CheckBox
-        android:id="@+id/checkBox7"
+        android:id="@+id/machineselect_checkbox_hamstringcurl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/machine5" 
+        android:text="@string/hamstringcurl" 
         android:textColor="#ff8c00"
         android:textSize="20dp"
         android:textStyle="bold"/>
 
     <CheckBox
-        android:id="@+id/checkBox8"
+        android:id="@+id/machineselect_checkbox_pulley"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/machine6" 
+        android:text="@string/pulley" 
         android:textColor="#ff8c00"
         android:textSize="20dp"
         android:textStyle="bold"/>
 
     <Button
-        android:id="@+id/button0"
+        android:id="@+id/machineselect_button_finish"
         android:layout_gravity="right"
         android:layout_width="70dp"
         android:layout_height="50dp"
-        android:text="@string/next" 
+        android:text="@string/finish" 
         android:background="@drawable/button_orange"
         android:textSize="20dp"
         android:textStyle="bold" />

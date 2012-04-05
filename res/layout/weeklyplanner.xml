@@ -21,27 +21,27 @@
         android:orientation="vertical" >
         
         <TextView
-        android:id="@+id/weekly_thisweek"      
-        android:text="This Week"      
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:text="@string/this_week"
         android:textColor="#ff8c00"
         android:textSize="25dp"
         android:textStyle="bold" />
         
     </LinearLayout>
-
+
+
     <TableLayout
         android:id="@+id/tableLayout1"
         android:layout_width="match_parent"
-        android:layout_height="0dip"
+        android:layout_height="0dp"
         android:layout_weight="0.83"
         android:stretchColumns="1" >
 
         <TableRow>
             <Button
-                android:id="@+id/sunday"
+                android:id="@+id/planner_button_sunday"
                 android:layout_width="60dp"
                 android:layout_height="50dp"
                 android:text="@string/sunday"
@@ -50,7 +50,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/muscle_group_sunday"
+                android:id="@+id/planner_textview_sunday"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
@@ -63,7 +63,7 @@
 
         <TableRow>
             <Button
-                android:id="@+id/monday"
+                android:id="@+id/planner_button_monday"
                 android:layout_width="60dp"
                 android:layout_height="50dp"
                 android:text="@string/monday"
@@ -72,6 +72,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/planner_textview_monday"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
@@ -83,7 +84,7 @@
         </TableRow>
         <TableRow>
             <Button
-                android:id="@+id/tuesday"
+                android:id="@+id/planner_button_tuesday"
                 android:layout_width="60dp"
                 android:layout_height="50dp"
                 android:text="@string/tuesday"
@@ -92,6 +93,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/planner_textview_tuesday"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
@@ -104,7 +106,7 @@
 
         <TableRow>
             <Button
-                android:id="@+id/wednesday"
+                android:id="@+id/planner_button_wednesday"
                 android:layout_width="60dp"
                 android:layout_height="50dp"
                 android:text="@string/wednesday"
@@ -113,6 +115,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/planner_textview_wednesday"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
@@ -124,7 +127,7 @@
         </TableRow>
         <TableRow>
             <Button
-                android:id="@+id/thursday"
+                android:id="@+id/planner_button_thursday"
                 android:layout_width="60dp"
                 android:layout_height="50dp"
                 android:text="@string/thursday"
@@ -133,6 +136,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/planner_textview_thursday"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
@@ -145,7 +149,7 @@
 
         <TableRow>
             <Button
-                android:id="@+id/friday"
+                android:id="@+id/planner_button_friday"
                 android:layout_width="60dp"
                 android:layout_height="50dp"
                 android:text="@string/friday"
@@ -154,6 +158,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/planner_textview_friday"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
@@ -165,7 +170,7 @@
         </TableRow>
         <TableRow>
             <Button
-                android:id="@+id/saturday"
+                android:id="@+id/planner_button_saturday"
                 android:layout_width="60dp"
                 android:layout_height="50dp"
                 android:text="@string/saturday"
@@ -174,6 +179,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/planner_textview_saturday"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
@@ -186,7 +192,7 @@
     </TableLayout>
 
     <Button
-        android:id="@+id/button0"
+        android:id="@+id/planner_button_back"
         android:layout_width="70dp"
         android:layout_height="50dp"
         android:layout_gravity="right"
@@ -194,5 +200,4 @@
         android:text="@string/next"
         android:textSize="20dp"
         android:textStyle="bold" />
-
 </LinearLayout>

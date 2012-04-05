@@ -6,12 +6,15 @@
     <string name="title">UFIT</string>
     <string name="machine_selection">Machine Selection</string>
     <string name="next">Next</string>
-	<string name="barbells">Barbells</string>
-	<string name="dumbells">Dumbbells</string>
-	<string name="machine1">Bench Press Machine</string>
-	<string name="machine2">Chest Fly Machine</string>
-	<string name="machine3">Shoulder Press Machine</string>
-	<string name="machine4">Leg Press</string>
+    <string name="finish">Finish</string>
+	<string name="barbells">Barbells</string> <!-- these names need to match those in the array below -->
+	<string name="dumbbells">Dumbbells</string>
+	<string name="benchpress">Bench Press Machine</string>
+	<string name="chestfly">Chest Fly Machine</string>
+	<string name="shoulderpress">Shoulder Press Machine</string>
+	<string name="legpress">Leg Press</string>
+	<string name="hamstringcurl">Hamstring Curl Machine</string>
+	<string name="pulley">Pulley Machine</string> <!-- end here, for now [4/3/12] -->
 	<string name="home_screen">Home Screen</string>
 	<string name="user_name">User Name</string>
 	<string name="today">Today\'s Exercises</string>
@@ -19,14 +22,15 @@
 	<string name="modify_profile">Modify Profile</string>
 	<string name="profile_picture_descrip">Profile Picture</string>
 	<string name="progress_report">Progress Report</string>
-	<string name="machine5">Hamstring Curl Machine</string>
-	<string name="machine6">Pulley Machine</string>
-	<string-array name="equipmentNames">
-	    <item>"arbitraryItem1"</item>
-	    <item>"arbitraryThing2"</item>
-	    <item>"aThirdItem"</item>
-	    <item>"itemNumber4"</item>
-	    <item>"defaultItem5"</item>
+	<string-array name="equipmentNames"> <!-- these names need to be the exact same as above -->
+	    <item>Barbells</item>
+	    <item>Dumbbells</item>
+	    <item>Bench Press Machine</item>
+	    <item>Chest Fly Machine</item>
+	    <item>Shoulder Press Machine</item>
+	    <item>Leg Press</item>
+	    <item>Hamstring Curl Machine</item>
+	    <item>Pulley Machine</item>
 	</string-array>
 	<string-array name="MF">
 	    <item>"M"</item>
@@ -44,6 +48,9 @@
 	<string name="friday">Friday</string>
 	<string name="saturday">Saturday</string>
 	<string name="sunday">Sunday</string>
+
+	<string name="this_week">This Week</string>
+	
 	<string name="muscle_group_sun">muscle_group_sun</string>
 	<string name="muscle_group_mon">muscle_group_mon</string>
 	<string name="muscle_group_tue">muscle_group_tue</string>
