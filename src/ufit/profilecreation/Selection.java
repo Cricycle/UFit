@@ -31,11 +31,11 @@ public class Selection extends ListActivity implements OnClickListener {
 		setContentView(R.layout.main);
 		application = (MyApp) getApplication();
 		loadUserNameDisplay();
-		
+
 		View v = findViewById(R.id.selection_button_createprofile);
 		v.setOnClickListener(this);
-		
-		 
+
+
 	}
 
 	private void loadUserNameDisplay() {
@@ -57,11 +57,11 @@ public class Selection extends ListActivity implements OnClickListener {
 			b.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.TOP);
 			toBePut.add(b);
 		}*/
-		
+
 		adapter = new MyListAdapter(this, R.layout.row, usernames);
 		setListAdapter(adapter);
-		
-		
+
+
 	}
 
 	public void onClick(View v) {
@@ -71,14 +71,14 @@ public class Selection extends ListActivity implements OnClickListener {
 		} else { //this means it should be one of the dynamic buttons.
 		}
 	}
-	
+
 	protected void onNewIntent(Intent i) {
 		if(i.getAction().equals("Go to Home")) {
 			Intent intent = new Intent(this, HomeScreen.class);
 			this.startActivity(intent);
 		}
 	}
-	
+
 	protected void onResume() {
 		super.onResume();
 		loadUserNameDisplay();
@@ -89,17 +89,17 @@ class MyListAdapter extends ArrayAdapter<String>{//desperate gambit.
 	private ArrayList<String> items;
 	private Context context;
 	private OnClickListener lis;
-	
+
 	public MyListAdapter(Context context, int textViewResourceId, ArrayList<String> objects) {
 		super(context, textViewResourceId, objects);
 		items = objects;
 		this.context = context;
 	}
-	
+
 	public void setOnClickListener(OnClickListener o) {
 		this.lis = o;
 	}
-	
+
 	public View getView (int position, View convertView, ViewGroup parent) {
 		View v = convertView;
         final String name = items.get(position);
