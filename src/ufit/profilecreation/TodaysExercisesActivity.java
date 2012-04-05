@@ -28,9 +28,9 @@ public class TodaysExercisesActivity extends Activity implements OnClickListener
         
         // pass in current day
         Bundle b = getIntent().getExtras();
-        String whatDay = getBundleString(b,"day","today");
+        String whatDay = getBundleString(b,"day",this.getString(R.string.today));
         Toast.makeText(this,whatDay, Toast.LENGTH_SHORT).show();
-        
+        loadInformation(whatDay);
         //name of items
         String[] items = {"red", "blue","green"};
 
@@ -39,13 +39,19 @@ public class TodaysExercisesActivity extends Activity implements OnClickListener
         
     }
     
-   
+    private void loadInformation(String s) {
+		TextView name = (TextView) findViewById(R.id.today_day);
+		name.setText(s+"'s Exercises");
+	}
     public String getBundleString(Bundle b, String key, String def) // checks bundle if null onot
     {
-        String value = b.getString(key);
-        if (value == null)
-            value = def;
-        return value;
+    	if(b != null ){
+    		String value = b.getString(key);
+    		if (value == null)
+    			value = def;
+    		return value;
+    	}
+    	return def;
     }
     
     public class ExercisesAdapter extends ArrayAdapter<ListExercises>{

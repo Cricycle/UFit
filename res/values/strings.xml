@@ -17,7 +17,8 @@
 	<string name="pulley">Pulley Machine</string> <!-- end here, for now [4/3/12] -->
 	<string name="home_screen">Home Screen</string>
 	<string name="user_name">User Name</string>
-	<string name="today">Today\'s Exercises</string>
+	<string name="today">Today</string>
+	<string name="today_exercises">Today\'s Exercises</string>
 	<string name="weekly">Weekly Planner</string>
 	<string name="modify_profile">Modify Profile</string>
 	<string name="profile_picture_descrip">Profile Picture</string>

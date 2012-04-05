@@ -56,49 +56,49 @@ public class WeeklyPlannerActivity extends Activity  implements OnClickListener{
 		if(v.getId() == R.id.planner_button_sunday){
 			Intent intent = new Intent(this,TodaysExercisesActivity.class);
 			Bundle b = new Bundle();
-			b.putString("day", "sunday");
+			b.putString("day", this.getString(R.string.sunday));
 			intent.putExtras(b);
 			this.startActivity(intent);
 			finish();
 	    }else if(v.getId() == R.id.planner_button_monday) {
 	    	Intent intent = new Intent(this,TodaysExercisesActivity.class);
 			Bundle b = new Bundle();
-			b.putString("day", "monday");
+			b.putString("day", this.getString(R.string.monday));
 			intent.putExtras(b);
 			this.startActivity(intent);
 			finish();		
 		} else if (v.getId() == R.id.planner_button_tuesday) {
 			Intent intent = new Intent(this,TodaysExercisesActivity.class);
 			Bundle b = new Bundle();
-			b.putString("day", "tuesday");
+			b.putString("day", this.getString(R.string.tuesday));
 			intent.putExtras(b);
 			this.startActivity(intent);
 			finish();		
 		} else if(v.getId() == R.id.planner_button_wednesday) {
 			Intent intent = new Intent(this,TodaysExercisesActivity.class);
 			Bundle b = new Bundle();
-			b.putString("day", "wednesday");
+			b.putString("day", this.getString(R.string.wednesday));
 			intent.putExtras(b);
 			this.startActivity(intent);
 			finish();
 		} else if (v.getId() == R.id.planner_button_thursday) {
 			Intent intent = new Intent(this,TodaysExercisesActivity.class);
 			Bundle b = new Bundle();
-			b.putString("day", "thursday");
+			b.putString("day", this.getString(R.string.thursday));
 			intent.putExtras(b);
 			this.startActivity(intent);
 			finish();
 		} else if (v.getId() == R.id.planner_button_friday) {
 			Intent intent = new Intent(this,TodaysExercisesActivity.class);
 			Bundle b = new Bundle();
-			b.putString("day", "friday");
+			b.putString("day", this.getString(R.string.friday));
 			intent.putExtras(b);
 			this.startActivity(intent);
 			finish();
 		} else if (v.getId() == R.id.planner_button_saturday) {
 			Intent intent = new Intent(this,TodaysExercisesActivity.class);
 			Bundle b = new Bundle();
-			b.putString("day", "saturday");
+			b.putString("day", this.getString(R.string.saturday));
 			intent.putExtras(b);
 			this.startActivity(intent);
 			finish();
