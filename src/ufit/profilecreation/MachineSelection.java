@@ -77,7 +77,7 @@ public class MachineSelection extends Activity implements OnClickListener {
 	}
 
 	public void onClick(View arg0) {
-		if(arg0.getId() == R.id.button0){
+		if(arg0.getId() == R.id.machineselect_button_finish){
 			Intent intent = new Intent(this,Selection.class);
 			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP).setAction("Go to Home");
 			this.startActivity(intent);
