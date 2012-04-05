@@ -19,10 +19,10 @@ public class SkillSelection extends Activity implements OnClickListener {
 		MyApp application = (MyApp)getApplication();
 		application.updateProfile(this); //this is to transform the regular profile into the specific type of profile
 		profile = application.getProfile();
-		setOnClickListenerForViews();
+		initializeButtons();
 	}
 	
-	public void setOnClickListenerForViews() {
+	public void initializeButtons() {
 		 View v1 = findViewById(R.id.skill_button_beginner);
 	     View v2 = findViewById(R.id.skill_button_intermediate);
 	     View v3 = findViewById(R.id.skill_button_advanced);
