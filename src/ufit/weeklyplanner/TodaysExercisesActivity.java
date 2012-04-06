@@ -112,7 +112,7 @@ public class TodaysExercisesActivity extends Activity  {
     		
     		ListExercises exercise = exercises.get(position);
     		if(exercise != null) {
-    			TextView exerciseName = (TextView) v.findViewById(R.id.exerciseName);
+    			TextView exerciseName = (TextView) v.findViewById(R.id.txtName);
     			
     			if(exerciseName != null){
     				exerciseName.setText(exercise.exerciseName);	

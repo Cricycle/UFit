@@ -15,6 +15,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import ufit.DatabaseUtilities.ExerciseInfo;
+import ufit.DatabaseUtilities.ExerciseInfoAdapter;
 import ufit.namespace.R;
 
 
@@ -25,17 +27,21 @@ public class TodaysExercisesActivity extends Activity implements OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.todaysexercises);
         initialiseButtons();
-        
+
         // pass in current day
         Bundle b = getIntent().getExtras();
         String whatDay = getBundleString(b,"day",this.getString(R.string.today));
         Toast.makeText(this,whatDay, Toast.LENGTH_SHORT).show();
         loadInformation(whatDay);
         //name of items
-        String[] items = {"red", "blue","green"};
 
+        ArrayList <ExerciseInfo> listOfExercises = new ArrayList<ExerciseInfo>();
+ 
+        listOfExercises.add(new ExerciseInfo(1, 1, "Bench Press", 1, 1, "Bench Press Machine", 2, "Description", "benchpress1", "ic_launcher", "runningman"));
+        listOfExercises.add(new ExerciseInfo(2, 2, "Calf Raise", 1, 1, "Bar", 2, "Description2", "bcalfraise1", "ic_launcher", "runningman"));
+        
         ListView listView = (ListView) findViewById(R.id.ListViewId);
-        listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items));
+        listView.setAdapter(new ExerciseInfoAdapter(this, listOfExercises));
         
     }
     
@@ -53,51 +59,7 @@ public class TodaysExercisesActivity extends Activity implements OnClickListener
     	}
     	return def;
     }
-    
-    public class ExercisesAdapter extends ArrayAdapter<ListExercises>{
-    	private ArrayList<ListExercises> exercises;
-    	
-    	public ExercisesAdapter(Context context, int textViewResourceId, ArrayList<ListExercises> exercises){
-    		super(context, textViewResourceId, exercises);
-    		this.exercises = exercises;
-    	}
-    	
-    	@Override
-    	public View getView(int position, View convertView, ViewGroup parent){
-    		View v = convertView;
-    		
-    		if(v == null) {
-    			LayoutInflater vi = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-    			v = vi.inflate(R.layout.exerciseslists, null);
-    		}
-    		
-    		ListExercises exercise = exercises.get(position);
-    		if(exercise != null) {
-    			TextView exerciseName = (TextView) v.findViewById(R.id.exerciseName);
-    			
-    			if(exerciseName != null){
-    				exerciseName.setText(exercise.exerciseName);	
-    			}
-    		}
-    		return v;
-    	}
-    }
-    
-    
-    public class ListExercises {
-    	public String exerciseName;
-    	
-    	public ListExercises(String exerciseName){
-    		this.exerciseName = exerciseName;
-    	}
-    	
-    	public void setText(String exerciseName)
-    	{
-    		this.exerciseName = exerciseName;
-    	
-    	}
-    }
-    
+
     public void initialiseButtons() {
         Button weekly = (Button) findViewById(R.id.weeklyplanner);
         weekly.setOnClickListener(this);
