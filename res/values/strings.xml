@@ -41,7 +41,7 @@
 	<string name="modify_equipment">Modify Equipments</string>
 	<string name="modify_exercises">Modify Exercises</string>
 	<string name="modify_goals">Modify goals</string>
-	<string name="exercise_info">Exercise Information</string>		<!-- changes -->
+	<string name="exercise_info">Exercise Information</string>		
 	<string name="weekly_planner">Weekly Planner</string>
 	<string name="monday">Monday</string>
 	<string name="tuesday">Tuesday</string>
@@ -61,9 +61,7 @@
 	<string name="muscle_group_fri">muscle_group_fri</string>
 	<string name="muscle_group_sat">muscle_group_sat</string>
 	<string name="save">Save</string>
-
-	<!-- changes -->
-	<string name="exercise_steps">Steps: This is a very long text that describes how to do this exercise. This description will take up multiple lines.</string>
+	<string name="exercise_steps">Running and biking with dogs always makes me nervous. Know your dog and their fitness level. Puppies and dogs under 2 years of age are still growing bones. I do not recommend running or biking with young dogs. </string>
 	
 	
 	
