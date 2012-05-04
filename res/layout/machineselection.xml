@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    
+<LinearLayout
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" 
@@ -14,7 +18,8 @@
         android:layout_gravity="center_horizontal"
         android:layout_height="wrap_content"
         android:textColor="#ff8c00"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:layout_marginBottom="30dp"/>
 
     <CheckBox
         android:id="@+id/machineselect_checkbox_dumbbells"
@@ -43,59 +48,31 @@
         android:textSize="20dp"
         android:textStyle="bold"/>
 
-    <CheckBox
-        android:id="@+id/machineselect_checkbox_chestfly"
-        android:layout_width="wrap_content"
+    <TextView
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/chestfly" 
+        android:text="How many days a week are you willing to workout?"
         android:textColor="#ff8c00"
-        android:textSize="20dp"
-        android:textStyle="bold"/>
+        android:textSize="15dp"
+        android:textStyle="bold" android:layout_marginTop="20dp"/>
 
-    <CheckBox
-        android:id="@+id/machineselect_checkbox_shoulderpress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/shoulderpress" 
-        android:textColor="#ff8c00"
-        android:textSize="20dp"
-        android:textStyle="bold"/>
 
-    <CheckBox
-        android:id="@+id/machineselect_checkbox_legpress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/legpress" 
-        android:textColor="#ff8c00"
-        android:textSize="20dp"
-        android:textStyle="bold"/>
 
-    <CheckBox
-        android:id="@+id/machineselect_checkbox_hamstringcurl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hamstringcurl" 
-        android:textColor="#ff8c00"
-        android:textSize="20dp"
-        android:textStyle="bold"/>
+    <Spinner
+        android:id="@+id/workdaysspinner"
+        android:layout_width="98dp"
+        android:layout_height="wrap_content" />
 
-    <CheckBox
-        android:id="@+id/machineselect_checkbox_pulley"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/pulley" 
-        android:textColor="#ff8c00"
-        android:textSize="20dp"
-        android:textStyle="bold"/>
-
-    <Button
-        android:id="@+id/machineselect_button_finish"
-        android:layout_gravity="right"
-        android:layout_width="70dp"
-        android:layout_height="50dp"
-        android:text="@string/finish" 
-        android:background="@drawable/button_orange"
-        android:textSize="20dp"
-        android:textStyle="bold" />
     
 </LinearLayout>
+    
+    <Button
+        android:id="@+id/machineselect_button_finish"
+        android:layout_width="95dp"
+        android:layout_height="60dp"
+        android:text="@string/finish" 
+        android:textSize="20dp"
+        android:background="@drawable/orange_button_clickstates"
+    	android:layout_alignParentBottom="true"
+    	android:layout_alignParentRight="true"/>
+</RelativeLayout>

@@ -34,7 +34,7 @@ public class ExerciseInfo {
 		this.setIloc3(iloc3);
 	}
 	
-	public ExerciseInfo(int id, int pid, String Exer, int mGroup, int type, String equip, int skill, String Descrip, Drawable i1, Drawable i2, Drawable i3)
+	public ExerciseInfo(int id, int pid, String Exer, int mGroup, int type, String equip, int skill, String Descrip, String iloc1, String iloc2, String iloc3, Drawable i1, Drawable i2, Drawable i3)
 	{
 		this.setID(id);
 		this.setpID(pid);
@@ -47,6 +47,9 @@ public class ExerciseInfo {
 		this.setImage1(i1);
 		this.setImage2(i2);
 		this.setImage3(i3);
+		this.setIloc1(iloc1);
+		this.setIloc2(iloc2);
+		this.setIloc3(iloc3);
 	}
 
 	public int getID() {

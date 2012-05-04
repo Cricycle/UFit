@@ -1,6 +1,7 @@
 package ufit.profilecreation;
 
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import android.app.Activity;
@@ -11,16 +12,22 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 import ufit.namespace.R;
+import ufit.profile.Profile;
+import ufit.global.MyApp;
 
 public class WeeklyPlannerActivity extends Activity  implements OnClickListener{
     /** Called when the activity is first created. */
-    @Override
+    private MyApp application;
+    private Profile profile;
+    
+	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.weeklyplanner);
-        initialiseButtons();
        
-        
+        application = (MyApp)getApplication();
+        profile = ((MyApp)getApplication()).getProfile();
+        initialiseButtons();
         /*
          * Current week, currently unused, not in XML file 
         int thisWeek = new GregorianCalendar().get(Calendar.WEEK_OF_YEAR);
@@ -30,81 +37,84 @@ public class WeeklyPlannerActivity extends Activity  implements OnClickListener{
  
     }
     public void initialiseButtons() {
-        Button exercisesSunday = (Button) findViewById(R.id.planner_button_sunday);
-        Button exercisesMonday = (Button) findViewById(R.id.planner_button_monday);
-        Button exercisesTuesday = (Button) findViewById(R.id.planner_button_tuesday);
-        Button exercisesWednesday = (Button) findViewById(R.id.planner_button_wednesday);
-        Button exercisesThursday = (Button) findViewById(R.id.planner_button_thursday);
-        Button exercisesFriday = (Button) findViewById(R.id.planner_button_friday);
-        Button exercisesSaturday = (Button) findViewById(R.id.planner_button_saturday);
-
-        // button goes to home screen
-        final Button button0 = (Button) findViewById(R.id.planner_button_back);
-        button0.setOnClickListener(this);
+    	ArrayList<TextView> array = new ArrayList<TextView>();
+    	array.add((TextView) findViewById(R.id.planner_textview_sunday));
+    	array.add((TextView) findViewById(R.id.planner_textview_monday));
+    	array.add((TextView) findViewById(R.id.planner_textview_tuesday));
+    	array.add((TextView) findViewById(R.id.planner_textview_wednesday));
+    	array.add((TextView) findViewById(R.id.planner_textview_thursday));
+    	array.add((TextView) findViewById(R.id.planner_textview_friday));
+    	array.add((TextView) findViewById(R.id.planner_textview_saturday));
         
-        exercisesSunday.setOnClickListener(this);
-        exercisesMonday.setOnClickListener(this);
-        exercisesTuesday.setOnClickListener(this);
-        exercisesWednesday.setOnClickListener(this);
-        exercisesThursday.setOnClickListener(this);
-        exercisesFriday.setOnClickListener(this);
-        exercisesSaturday.setOnClickListener(this);
-
+        for (int i = profile.getNumWorkoutDays(); i < 7; i++)
+    	{
+        	array.get(i).setVisibility(8);
+    	}
+        
+        // button goes to home screen
+        Button home = (Button) findViewById(R.id.homescreenback);
+        home.setOnClickListener(this);
+        
+        for (int i = 0; i < profile.getNumWorkoutDays(); i++)
+    	{
+        	array.get(i).setOnClickListener(this);
+    	}
     }    
     //@Override
 	public void onClick(View v) {
-		if(v.getId() == R.id.planner_button_sunday){
+		if(v.getId() == R.id.planner_textview_sunday){
 			Intent intent = new Intent(this,TodaysExercisesActivity.class);
 			Bundle b = new Bundle();
 			b.putString("day", this.getString(R.string.sunday));
 			intent.putExtras(b);
 			this.startActivity(intent);
-			finish();
-	    }else if(v.getId() == R.id.planner_button_monday) {
+			//finish();
+	    }else if(v.getId() == R.id.planner_textview_monday) {
 	    	Intent intent = new Intent(this,TodaysExercisesActivity.class);
 			Bundle b = new Bundle();
 			b.putString("day", this.getString(R.string.monday));
 			intent.putExtras(b);
 			this.startActivity(intent);
-			finish();		
-		} else if (v.getId() == R.id.planner_button_tuesday) {
+			//finish();		
+		} else if (v.getId() == R.id.planner_textview_tuesday) {
 			Intent intent = new Intent(this,TodaysExercisesActivity.class);
 			Bundle b = new Bundle();
 			b.putString("day", this.getString(R.string.tuesday));
 			intent.putExtras(b);
 			this.startActivity(intent);
-			finish();		
-		} else if(v.getId() == R.id.planner_button_wednesday) {
+			//finish();		
+		} else if(v.getId() == R.id.planner_textview_wednesday) {
 			Intent intent = new Intent(this,TodaysExercisesActivity.class);
 			Bundle b = new Bundle();
 			b.putString("day", this.getString(R.string.wednesday));
 			intent.putExtras(b);
 			this.startActivity(intent);
-			finish();
-		} else if (v.getId() == R.id.planner_button_thursday) {
+			//finish();
+		} else if (v.getId() == R.id.planner_textview_thursday) {
 			Intent intent = new Intent(this,TodaysExercisesActivity.class);
 			Bundle b = new Bundle();
 			b.putString("day", this.getString(R.string.thursday));
 			intent.putExtras(b);
 			this.startActivity(intent);
-			finish();
-		} else if (v.getId() == R.id.planner_button_friday) {
+			//finish();
+		} else if (v.getId() == R.id.planner_textview_friday) {
 			Intent intent = new Intent(this,TodaysExercisesActivity.class);
 			Bundle b = new Bundle();
 			b.putString("day", this.getString(R.string.friday));
 			intent.putExtras(b);
 			this.startActivity(intent);
-			finish();
-		} else if (v.getId() == R.id.planner_button_saturday) {
+			//finish();
+		} else if (v.getId() == R.id.planner_textview_saturday) {
 			Intent intent = new Intent(this,TodaysExercisesActivity.class);
 			Bundle b = new Bundle();
 			b.putString("day", this.getString(R.string.saturday));
 			intent.putExtras(b);
 			this.startActivity(intent);
-			finish();
-		} else if (v.getId() == R.id.button0){
-			Intent intent = new Intent (this, HomeScreen.class);
-			startActivity(intent);
+			//finish();
+		} else if (v.getId() == R.id.homescreenback){
+			Intent intent = new Intent(this,HomeScreen.class);
+			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP).setAction("Go to Home");
+			this.startActivity(intent);
 		}
     }
 	

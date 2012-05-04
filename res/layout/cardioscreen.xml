@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+<LinearLayout
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" 
@@ -11,7 +15,8 @@
         android:textSize="25dp"
         android:layout_height="wrap_content"
         android:textColor="#ff8c00"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:layout_marginBottom="30dp"/>
     <CheckBox
         android:id="@+id/cardioscreen_checkbox_run"
         android:layout_width="wrap_content"
@@ -52,13 +57,16 @@
         android:textSize="20dp"
         android:text="Walk" />
 
-    <Button
-        android:id="@+id/cardioscreen_button_next"
-        android:layout_width="67dp"
-        android:layout_height="38dp"
-        android:layout_marginLeft="250dp"
-        android:layout_marginTop="150dp"
-        android:background="@drawable/button_orange"
-        android:text="Next" />
     
 </LinearLayout>
+
+    <Button
+        android:id="@+id/cardioscreen_button_next"
+        android:layout_width="95dp"
+        android:layout_height="60dp"
+        android:background="@drawable/orange_button_clickstates"
+        android:text="Next" 
+        android:textSize="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"/>
+</RelativeLayout>

@@ -3,15 +3,14 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/background">
+    android:background="@drawable/background"
+    android:gravity="center">
 
 
 <LinearLayout
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
-
-    
 
     <TextView
         android:id="@+id/today_day"
@@ -21,9 +20,11 @@
         android:text="@string/todays_exercises"
         android:textColor="#ff8c00"
         android:textSize="30dp"
-        android:textStyle="bold" />
+        android:textStyle="bold" 
+        android:layout_marginBottom="22dp"/>
 
     <TextView
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -32,43 +33,26 @@
         android:textSize="20dp"
         android:textStyle="bold" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:padding="3dip"
-            android:text="@string/exercise1"
-            android:textColor="#ff8c00"
-            android:textSize="20dp"
-            android:textStyle="bold" />
-
-        <ImageView
-            android:contentDescription="afhd;ala"
-            android:id="@+id/imageView1"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/bench_press" />
-    </LinearLayout>
-
     <ListView 
        android:id="@+id/ListViewId"
        android:layout_width="fill_parent"
-       android:layout_height="wrap_content"/>
+       android:layout_height="wrap_content"
+       android:clickable="false"
+       android:focusable="false"/>
     
+
+</LinearLayout>
+
     <Button
         android:id="@+id/weeklyplanner"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/button_orange"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/orange_button_clickstates"
         android:text="@string/weekly_planner"
         android:textSize="20dp"
         android:textStyle="bold" />
-
-</LinearLayout>
 </RelativeLayout>

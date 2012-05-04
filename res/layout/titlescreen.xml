@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@android:color/black" >
 
     <ViewAnimator
         android:id="@+id/viewAnimator1"
@@ -12,7 +13,7 @@
     
 <ImageView
     
-    android:src="@drawable/runningman"
+    android:src="@drawable/black_ufit"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"/>
 

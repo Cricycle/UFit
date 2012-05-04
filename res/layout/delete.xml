@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:focusable="false" >
+ 
+     <TextView
+     	android:id="@+id/delete_profile_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Delete Profile"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ff8c00"
+        android:textSize="30dp"
+        android:textStyle="bold" >
+        </TextView>
+  <TextView
+        android:id="@+id/sure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/delete_profile_text"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="40dp"
+        android:text="Are you sure you want to delete this Profile?"
+        android:textColor="#ff8c00"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+<RelativeLayout
+    			android:layout_width="wrap_content"
+    			android:layout_height="wrap_content"
+    			android:layout_centerHorizontal="true"
+    			android:layout_below="@+id/sure">
+  <Button
+        android:id="@+id/delete_yes"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/orange_button_clickstates"
+        android:layout_gravity="center"
+        android:text="Yes"
+        android:layout_below="@+id/sure"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+  
+  <Button
+        android:id="@+id/delete_no"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/orange_button_clickstates"
+        android:text="No"
+        android:layout_below="@+id/sure"
+        android:layout_toRightOf="@+id/delete_yes"
+        android:layout_gravity="center"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+  
+  </RelativeLayout>
+  </RelativeLayout>

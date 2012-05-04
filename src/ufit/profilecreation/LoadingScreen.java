@@ -15,7 +15,7 @@ public class LoadingScreen extends Activity {
 		Thread logoTimer = new Thread(){
 			public void run(){
 			try{
-				sleep(1500);
+				sleep(2000);
 				/*int timer=0;
 				while(timer<1500){
 					sleep(100);

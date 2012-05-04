@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" 
-    android:background="@drawable/background" >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    
+<TableLayout android:id="@+id/widget253"
+        android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="@drawable/background"
+        android:stretchColumns="1">
+ 
     
     <TextView
         android:layout_width="fill_parent"
@@ -11,55 +16,130 @@
         android:textColor="#ff8c00"
         android:textSize="20dp"
        	android:textStyle="bold"
-        android:text="Please select a focus area" />
+        android:text="Please select a focus area" 
+        android:layout_marginBottom="30dp"/>
+  
 
-    <CheckBox
-        android:id="@+id/checkBox1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Chest"
-        android:textColor="#ff8c00" />
+<TableRow      android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+                <CheckBox
+        			android:id="@+id/strengthscreen_checkbox_chest"
+      				android:layout_width="wrap_content"
+       			    android:layout_height="wrap_content"
+        			android:text="Chest"
+        			android:textColor="#ff8c00" 
+        			android:layout_marginRight="60dp"/>
 
-    <CheckBox
-        android:id="@+id/checkBox6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Back"
-        android:textColor="#ff8c00" />
 
-    <CheckBox
-        android:id="@+id/checkBox2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Legs"
-        android:textColor="#ff8c00" />
+			    <CheckBox
+			        android:id="@+id/strengthscreen_checkbox_back"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="Back"
+			        android:layout_toRightOf="@+id/strengthscreen_checkbox_chest"
+			        android:textColor="#ff8c00" />
 
-    <CheckBox
-        android:id="@+id/checkBox3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Shoulders"
-        android:textColor="#ff8c00" />
+</TableRow>			    
+<TableRow      android:layout_width="fill_parent"
+               android:layout_height="wrap_content">		    
+			    <CheckBox
+			        android:id="@+id/strengthscreen_checkbox_legs"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="Legs"
+			        android:textColor="#ff8c00" 
+        			android:layout_marginRight="60dp"/>
 
-    <CheckBox
-        android:id="@+id/checkBox4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Arms"
-        android:textColor="#ff8c00" />
+			    <CheckBox
+			        android:id="@+id/strengthscreen_checkbox_biceps"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="Biceps"
+			        android:textColor="#ff8c00" />
+		    
+</TableRow>	
+<TableRow      android:layout_width="fill_parent"
+               android:layout_height="wrap_content">		    
+			    <CheckBox
+			        android:id="@+id/strengthscreen_checkbox_triceps"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="Triceps"
+			        android:textColor="#ff8c00" 
+        			android:layout_marginRight="40dp"/>
 
-    <CheckBox
-        android:id="@+id/checkBox5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Full Body"
-        android:textColor="#ff8c00" />
+			    <CheckBox
+			        android:id="@+id/strengthscreen_checkbox_shoulders"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="Shoulders"
+			        android:textColor="#ff8c00" />
+	    
+</TableRow>	
+<TableRow      android:layout_width="fill_parent"
+               android:layout_height="wrap_content">			
+				<CheckBox
+			        android:id="@+id/strengthscreen_checkbox_quads"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="Quads"
+			        android:textColor="#ff8c00"
+        			android:layout_marginRight="40dp" />
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_gravity="bottom|right"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Next" />
+				<CheckBox
+			        android:id="@+id/strengthscreen_checkbox_hamstrings"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="Hamstrings"
+			        android:textColor="#ff8c00" />
+	    
+</TableRow>	
+<TableRow      android:layout_width="fill_parent"
+               android:layout_height="wrap_content">				
+				<CheckBox
+			        android:id="@+id/strengthscreen_checkbox_calves"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="Calves"
+			        android:textColor="#ff8c00"
+        			android:layout_marginRight="40dp" />
 
-</LinearLayout>
+				<CheckBox
+			        android:id="@+id/strengthscreen_checkbox_glutes"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="Glutes"
+			        android:textColor="#ff8c00" />
+	    
+</TableRow>	
+<TableRow      android:layout_width="fill_parent"
+               android:layout_height="wrap_content">		
+				<CheckBox
+			        android:id="@+id/strengthscreen_checkbox_abs"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="Abs"
+			        android:textColor="#ff8c00" 
+        			android:layout_marginRight="40dp"/>
+
+				<CheckBox
+			        android:id="@+id/strengthscreen_checkbox_fullBody"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="Full Body"
+			        android:textColor="#ff8c00" />
+</TableRow>
+
+ 
+</TableLayout>
+
+<Button
+    android:id="@+id/strengthscreen_button_next"
+    android:layout_width="95dp"
+    android:layout_height="60dp"
+    android:background="@drawable/orange_button_clickstates"
+    android:text="Next"
+    android:textSize="20dp"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentRight="true"/>
+</RelativeLayout>

@@ -2,6 +2,7 @@ package ufit.profile;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import android.content.Context;
 
@@ -10,7 +11,7 @@ public class General extends Profile
 	Cardio cProfile;
 	Strength sProfile;
 	final static int workoutType = 3;
-	
+
 	public General(Context context)
 	{
 		super(context);
@@ -26,6 +27,11 @@ public class General extends Profile
 	{
 		cProfile.loadProfile(b);
 		sProfile.loadProfile(b);
+	}
+
+	public int getWorkoutType()
+	{
+		return workoutType;
 	}
 	public boolean getRun()
 	{
@@ -47,11 +53,7 @@ public class General extends Profile
 	{
 		return  cProfile.getElliptical();
 	}
-	public int getWorkoutType()
-	{
-		return workoutType;
-	}
-	
+
 	public void setRun(boolean r)
 	{
 		 cProfile.setRun(r);
@@ -72,28 +74,105 @@ public class General extends Profile
 	{
 		cProfile.setElliptical(e);
 	}
-	public void setLegs(boolean l)
+
+	public boolean getChest()
 	{
-		sProfile.setLegs(l);
+		return sProfile.getChest();
 	}
-	public void setArms(boolean a)
+	public boolean getBack()
 	{
-		sProfile.setArms(a);
-	}
-	public void setTorso(boolean t)
-	{
-		sProfile.setTorso(t);
+		return sProfile.getBack();
 	}
 	public boolean getLegs()
 	{
 		return sProfile.getLegs();
 	}
-	public boolean getArms()
+	public boolean getBiceps()
 	{
-		return sProfile.getArms();
+		return sProfile.getBiceps();
 	}
-	public boolean getTorso()
+	public boolean getTriceps()
 	{
-		return sProfile.getTorso();
+		return sProfile.getTriceps();
 	}
+	public boolean getShoulders()
+	{
+		return sProfile.getShoulders();
+	}
+	public boolean getQuads()
+	{
+		return sProfile.getQuads();
+	}
+	public boolean getHamstrings()
+	{
+		return sProfile.getHamstrings();
+	}
+	public boolean getCalves()
+	{
+		return sProfile.getCalves();
+	}
+	public boolean getGlutes()
+	{
+		return sProfile.getGlutes();
+	}
+	public boolean getFullBody()
+	{
+		return sProfile.getFullBody();
+	}
+	public boolean getAbs()
+	{
+		return sProfile.getAbs();
+	}
+	public void setChest(boolean c)
+	{
+		sProfile.setChest(c);
+	}
+	public void setBack(boolean b)
+	{
+		sProfile.setBack(b);
+	}
+	public void setLegs(boolean l)
+	{
+		sProfile.setLegs(l);
+	}
+	public void setBiceps(boolean b)
+	{
+		sProfile.setBiceps(b);
+	}
+	public void setTriceps(boolean t)
+	{
+		sProfile.setTriceps(t);
+	}
+	public void setShoulders(boolean s)
+	{
+		sProfile.setShoulders(s);
+	}
+	public void setQuads(boolean q)
+	{
+		sProfile.setQuads(q);
+	}
+	public void setHamstrings(boolean h)
+	{
+		sProfile.setHamstrings(h);
+	}
+	public void setCalves(boolean c)
+	{
+		sProfile.setCalves(c);
+	}
+	public void setGlutes(boolean g)
+	{
+		sProfile.setGlutes(g);
+	}
+	public void setFullBody(boolean fb)
+	{
+		sProfile.setFullBody(fb);
+	}
+	public void setAbs(boolean a)
+	{
+		sProfile.setAbs(a);
+	}
+	public ArrayList<Integer> getMuscleGroupList() {
+		return sProfile.getMuscleGroupList();
+	}
+
 }

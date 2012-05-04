@@ -32,11 +32,15 @@ public class Profile
 	int numWorkoutDays;
 	int skill; //1 indicates beginner, 2 indicates intermediate, 3 indicates advanced.
 	ArrayList<Integer> id;
-	
+	ArrayList<Integer> like;
+
 	boolean equipment[];
 	String equipmentNames[]; //somehow use string.xml as a resource to get names.
 	int equipmentID[];
-	
+	boolean flag;
+
+
+
 	public Profile(Context context)
 	{
 	     username = "Albert";
@@ -46,13 +50,13 @@ public class Profile
 		 b_day = 1;
 		 b_month = 1;
 		 b_year = 1990;
-		 
+
 		 Calendar cal = Calendar.getInstance();
 		   day = cal.get(Calendar.DATE);
 		   month = cal.get(Calendar.MONTH) + 1;
 		   year = cal.get(Calendar.YEAR);
 		   age = computeAge(day, month, year);
-		 
+
 		 gender = 1;
 		 numWorkoutDays = 0;
 		 skill = 1;
@@ -61,10 +65,14 @@ public class Profile
 		 equipment = new boolean[equipmentNames.length];
 		 pictureLocation = "NULL//@NoSpace";
 		 id = new ArrayList<Integer>();
+		 like = new ArrayList<Integer>();
+		 flag = true;
 	}
-	
+
 	//the purpose of this function is to extend a regular Profile to a specified type
-	public Profile extend(int workOutType, Context context) { 
+	public Profile extend(int workOutType, Context context) {
+		if(this.workoutType != 0)
+			return this;
 		Profile p = null;
 		if(workOutType == 1) {
 			p = new Strength(context);
@@ -75,7 +83,7 @@ public class Profile
 		} else {
 			//there shall be errors!!!#error
 		}
-		
+
 		p.username = this.username;
 		p.pictureLocation = this.pictureLocation;
 		p.heightInches = this.heightInches;
@@ -95,17 +103,31 @@ public class Profile
 		p.equipment = this.equipment;
 		p.equipmentNames = this.equipmentNames;
 		p.equipmentID = this.equipmentID;
-		
+		p.like = this.like;
+		p.flag = this.flag;
+
 		p.setRun( this.getRun() );
 		p.setSwim( this.getSwim() );
 		p.setBike( this.getBike() );
 		p.setElliptical( this.getElliptical() );
 		p.setWalk( this.getWalk() );
-		
-		
+
+		p.setChest( this.getChest() );
+		p.setBack( this.getBack() );
+		p.setLegs( this.getLegs() );
+		p.setBiceps( this.getBiceps() );
+		p.setTriceps( this.getTriceps() );
+		p.setShoulders( this.getShoulders() );
+		p.setQuads( this.getQuads() );
+		p.setHamstrings( this.getHamstrings() );
+		p.setCalves( this.getCalves() );
+		p.setGlutes( this.getGlutes() );
+		p.setFullBody( this.getFullBody() );
+		p.setAbs( this.getAbs() );
+
 		return p;
 	}
-	public void saveProfile(Profile p, FileOutputStream file) 
+	public void saveProfile(Profile p, FileOutputStream file)
 	{
 		try{
 			PrintWriter out = new PrintWriter(file);
@@ -120,13 +142,13 @@ public class Profile
 			out.print(p.getGender() + " ");
 			out.print(p.getSkill() + " ");
 			out.println(p.getNumWorkoutDays() + " ");
-			
+
 			for(int i=0; i<equipment.length; i++)
 			{
 				out.print(equipment[i] + " ");
 			}
 			out.println();
-			
+
 			if(p.getWorkoutType()==1)
 			{
 				Strength s = (Strength) p;
@@ -144,15 +166,23 @@ public class Profile
 			}
 			out.println(p.getPictureLocation());
 			out.println(id.size());
-			
+
 			for(int i=0; i<id.size();i++)
 			{
 				out.print(id.get(i)+" ");
 			}
 			out.println();
 			out.println(p.month + " " + p.day + " " + p.year);
-			
-			
+
+			out.println(like.size());
+			for(int i=0; i<like.size();i++)
+			{
+				out.print(like.get(i)+" ");
+			}
+			out.println();
+			out.println(p.getExpertSystemFlag());
+
+
 			out.close();
 	  }catch (Exception e){System.out.println("File Error: Save Profile");}
 	}
@@ -160,16 +190,16 @@ public class Profile
 	{
 		try{
 		  BufferedReader b = new BufferedReader(new InputStreamReader(file));
-	
+
 		  String line1 = b.readLine();
 		  Profile p = null;
-		  
+
 		  String[] result = line1.split(" ");
 		  int type =  new Integer(result[0]);
-		  
+
 		  if(type==1)
 		  {
-			  p = new Strength(context);  
+			  p = new Strength(context);
 		  }
 		  else if(type==2)
 		  {
@@ -184,7 +214,7 @@ public class Profile
 			  throw new Exception("loadProfile Type Error");
 		  }
 		  p.setUsername(result[1]);
-		  
+
 		  p.setHeightInches(new Double(result[2]));
 		  p.setWeight(new Double(result[3]));
 		  p.setTargetWeight(new Double(result[4]));
@@ -192,22 +222,22 @@ public class Profile
 		  p.setGender(new Integer(result[8]));
 		  p.setSkill(new Integer(result[9]));
 		  p.setNumWorkoutDays(new Integer(result[10]));
-		  
-		  
+
+
 		  Calendar cal = Calendar.getInstance();
 		  int d = cal.get(Calendar.DATE);
 		  int m = cal.get(Calendar.MONTH) + 1;
 		  int y = cal.get(Calendar.YEAR);
 		  p.setAge(p.computeAge(d, m, y));
-		  
+
 		  String line2 = b.readLine();
 		  result = line2.split(" ");
-		  
+
 		  for(int i=0; i<result.length; i++) //this could cause array out of bounds exception
 		  {
 			  p.equipment[i] = result[i].equals("true");
 		  }
-		  
+
 		  if(type==1)
 		  {
 			  Strength s = (Strength) p;
@@ -215,7 +245,7 @@ public class Profile
 		  }
 		  else if(type==2)
 		  {
-			  Cardio c = (Cardio) p; 
+			  Cardio c = (Cardio) p;
 			  c.loadProfile(b);
 		  }
 		  else if(type==3)
@@ -223,27 +253,39 @@ public class Profile
 			  General g = (General) p;
 			  g.loadProfile(b);
 		  }
-		  
+
 		  p.pictureLocation = b.readLine();
 		  int size = new Integer(b.readLine());
-		  
+
 		  String line = b.readLine();
 		  result = line.split(" ");
 		  ArrayList<Integer> a = new ArrayList<Integer>();
-		  
+
 		  for(int i=0; i<size; i++)
-		  { 
+		  {
 			  a.add(new Integer(result[i]));
 		  }
 		  p.setID(a);
 		  line = b.readLine();
 		  result = line.split(" ");
 		  p.setDate(new Integer(result[0]),new Integer(result[1]),new Integer(result[2]));
-		  
+
+		  size = new Integer(b.readLine());
+		  line = b.readLine();
+		  result = line.split(" ");
+		  ArrayList<Integer> s = new ArrayList<Integer>();
+
+		  for(int i=0; i<size; i++)
+		  {
+			  s.add(new Integer(result[i]));
+		  }
+		  p.setLike(s);
+		  line = b.readLine();
+		  p.setExpertSystemFlag(line.equals("true"));
 		  b.close();
 		  return p;
-		  
-		  
+
+
 		}catch (Exception e){System.out.println("File Error: Get Profile");}
 		return null;
 	}
@@ -259,11 +301,11 @@ public class Profile
 	{
 		heightInches = i;
 	}
-	public void setWeight(double w) 
+	public void setWeight(double w)
 	{
 		weight = w;
 	}
-	public void setTargetWeight(double w) 
+	public void setTargetWeight(double w)
 	{
 		targetWeight = w;
 	}
@@ -279,11 +321,18 @@ public class Profile
 		day = d;
 		year = y;
 	}
-	public void setAge(int a) 
+	public void setTodaysDate()
+	{
+		Calendar cal = Calendar.getInstance();
+		day = cal.get(Calendar.DATE);
+		month = cal.get(Calendar.MONTH) + 1;
+		year = cal.get(Calendar.YEAR);
+	}
+	public void setAge(int a)
 	{
 		age = a;
 	}
-	public void setGender(int g) 
+	public void setGender(int g)
 	{ //1 is male, 2 is female.
 		gender = g;
 	}
@@ -315,31 +364,39 @@ public class Profile
 			ret = true;
 			equipment[index]=have;
 		}
-		return ret;	
+		return ret;
 	}
 	public void setID(ArrayList<Integer> a)
 	{
 		id = a;
 	}
-	
-	
+	public void setLike(ArrayList<Integer> a)
+	{
+		like = a;
+	}
+	public void setExpertSystemFlag(boolean f)
+	{
+		flag = f;
+	}
+
+
 	public String getUsername()
 	{
 		return username;
 	}
-	public double getHeightInches() 
+	public double getHeightInches()
 	{
 		return heightInches;
 	}
-	public double getWeight() 
+	public double getWeight()
 	{
 		return weight;
 	}
-	public double getTargetWeight() 
+	public double getTargetWeight()
 	{
 		return targetWeight;
 	}
-	public int getAge() 
+	public int getAge()
 	{
 		return age;
 	}
@@ -367,7 +424,7 @@ public class Profile
 	{
 		return year;
 	}
-	public int getGender() 
+	public int getGender()
 	{
 		return gender;
 	}
@@ -403,7 +460,7 @@ public class Profile
 	{
 		ArrayList<String> a = new ArrayList<String>();
 		String e;
-		
+
 		for(int i=0; i<equipment.length; i++)
 		{
 			if(equipment[i])
@@ -441,7 +498,7 @@ public class Profile
 		{
 			BMR = (655 + (4.35*weight) +(4.7*heightInches) - (4.7*age));
 		}
-		
+
 		if(numWorkoutDays<=3 && numWorkoutDays>=1)
 		{
 			calories = BMR * 1.375;
@@ -458,11 +515,16 @@ public class Profile
 		{
 			calories = BMR * 1.2;
 		}
+		calories = (double)(Math.round(calories));
 		return calories;
 	}
 	public ArrayList<Integer> getID()
 	{
 		return id;
+	}
+	public ArrayList<Integer> getLike()
+	{
+		return like;
 	}
 	public boolean hasBeenWeek()
 	{
@@ -474,19 +536,91 @@ public class Profile
 		  Calendar cal1 = new GregorianCalendar();
 		  Calendar cal2 = new GregorianCalendar();
 
-		  cal1.set(y, m, d); 
+		  cal1.set(y, m, d);
 		  cal2.set(year, month, day);
 		  Date d1 = (cal1.getTime());
 		  Date d2 = (cal2.getTime());
 		  long diff = d1.getTime()-d2.getTime();
 		  int difference = (int)(diff / (1000 * 60 * 60 * 24));
 		  boolean week =false;
-		  
+
 		  if(difference>6)week=true;
 		  return week;
-				
+
 	}
-	
+
+	public boolean hasBeenTwoWeeks()
+	{
+		Calendar cal = Calendar.getInstance();
+		  int d = cal.get(Calendar.DATE);
+		  int m = cal.get(Calendar.MONTH) + 1;
+		  int y = cal.get(Calendar.YEAR);
+
+		  Calendar cal1 = new GregorianCalendar();
+		  Calendar cal2 = new GregorianCalendar();
+
+		  cal1.set(y, m, d);
+		  cal2.set(year, month, day);
+		  Date d1 = (cal1.getTime());
+		  Date d2 = (cal2.getTime());
+		  long diff = d1.getTime()-d2.getTime();
+		  int difference = (int)(diff / (1000 * 60 * 60 * 24));
+		  boolean week =false;
+
+		  if(difference>13)week=true;
+		  return week;
+
+	}
+
+	public boolean hasBeenThreeWeeks()
+	{
+		Calendar cal = Calendar.getInstance();
+		  int d = cal.get(Calendar.DATE);
+		  int m = cal.get(Calendar.MONTH) + 1;
+		  int y = cal.get(Calendar.YEAR);
+
+		  Calendar cal1 = new GregorianCalendar();
+		  Calendar cal2 = new GregorianCalendar();
+
+		  cal1.set(y, m, d);
+		  cal2.set(year, month, day);
+		  Date d1 = (cal1.getTime());
+		  Date d2 = (cal2.getTime());
+		  long diff = d1.getTime()-d2.getTime();
+		  int difference = (int)(diff / (1000 * 60 * 60 * 24));
+		  boolean week =false;
+
+		  if(difference>20)week=true;
+		  return week;
+
+	}
+
+	public boolean hasBeenMonth()
+	{
+		Calendar cal = Calendar.getInstance();
+		  int d = cal.get(Calendar.DATE);
+		  int m = cal.get(Calendar.MONTH) + 1;
+		  int y = cal.get(Calendar.YEAR);
+
+		  Calendar cal1 = new GregorianCalendar();
+		  Calendar cal2 = new GregorianCalendar();
+
+		  cal1.set(y, m, d);
+		  cal2.set(year, month, day);
+		  Date d1 = (cal1.getTime());
+		  Date d2 = (cal2.getTime());
+		  long diff = d1.getTime()-d2.getTime();
+		  int difference = (int)(diff / (1000 * 60 * 60 * 24));
+		  boolean week =false;
+
+		  if(difference>27)week=true;
+		  return week;
+	}
+	public boolean getExpertSystemFlag()
+	{
+		return flag;
+	}
+
 	//I chose to add these 10 methods here so that I can make use of polymorphism in the cardioselection screens
 	public boolean getRun()
 	{
@@ -508,16 +642,79 @@ public class Profile
 	{
 		return false;
 	}
-	
+
 	public void setRun(boolean r){}
 	public void setSwim(boolean s){}
 	public void setBike(boolean b){}
 	public void setWalk(boolean w){}
 	public void setElliptical(boolean e){}
 
+	public void setChest(boolean s){}
+	public void setBack(boolean b){}
+	public void setLegs(boolean l){}
+	public void setBiceps(boolean b){}
+	public void setTriceps(boolean t){}
+	public void setShoulders(boolean s){}
+	public void setQuads(boolean q){}
+	public void setHamstrings(boolean h){}
+	public void setCalves(boolean c){}
+	public void setGlutes(boolean g){}
+	public void setFullBody(boolean fb){}
+	public void setAbs(boolean a){}
+
+	public boolean getChest()
+	{
+		return false;
+	}
+	public boolean getBack()
+	{
+		return false;
+	}
+	public boolean getLegs()
+	{
+		return false;
+	}
+	public boolean getBiceps()
+	{
+		return false;
+	}
+	public boolean getTriceps()
+	{
+		return false;
+	}
+	public boolean getShoulders()
+	{
+		return false;
+	}
+	public boolean getQuads()
+	{
+		return false;
+	}
+	public boolean getHamstrings()
+	{
+		return false;
+	}
+	public boolean getCalves()
+	{
+		return false;
+	}
+	public boolean getGlutes()
+	{
+		return false;
+	}
+	public boolean getFullBody()
+	{
+		return false;
+	}
+	public boolean getAbs()
+	{
+		return false;
+	}
+
 	public String getFilename() {
 		return username + "Z.txt";
 	}
-	
-	
+	public ArrayList<Integer> getMuscleGroupList() {
+		return new ArrayList<Integer>();
+	}
 }

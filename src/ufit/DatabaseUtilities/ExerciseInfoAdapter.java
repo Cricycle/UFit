@@ -95,7 +95,10 @@ public class ExerciseInfoAdapter extends BaseAdapter implements ListAdapter{
     			
     			if(exerciseinfo.getImage1() == null)
     			{
-    			int thumbID = myCon.getResources().getIdentifier(exerciseinfo.getIloc1(), "drawable", this.myCon.getPackageName());
+    				//swap the commented versions below after the thumbs are ready	
+    			String name = exerciseinfo.getIloc1() + "_thumb"; 
+    			int thumbID = myCon.getResources().getIdentifier(name, "drawable", this.myCon.getPackageName());			
+    			//int thumbID = myCon.getResources().getIdentifier(exerciseinfo.getIloc1(), "drawable", this.myCon.getPackageName());
     			holder.imgThumb.setImageResource(thumbID);
     			}
     			else

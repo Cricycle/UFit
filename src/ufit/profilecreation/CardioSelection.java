@@ -8,8 +8,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class CardioSelection extends Activity implements OnClickListener {
@@ -23,6 +26,8 @@ public class CardioSelection extends Activity implements OnClickListener {
 		
 		loadProfileView();
 		setOnClickListenerForViews();
+		
+		
 	}
 	private void loadProfileView() {
 		CheckBox curBox;
@@ -60,15 +65,17 @@ public class CardioSelection extends Activity implements OnClickListener {
 			//determine which screen to continue to based off of the workoutType of the profile, or the goal.
 			if(profile.getWorkoutType() == 2) { //indicates just cardio.
 				//go straight to home screen, via the selection screen.
-				Intent intent = new Intent(this,Selection.class);
-				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP).setAction("Go to Home");
+				Intent intent = new Intent(this,MachineSelection.class);
+						//intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP).setAction("Go to Home");
 				this.startActivity(intent);
-				finish();
-			} else if(profile.getWorkoutType() == 3) { //indicates general
-				//go to the strength track.
+						//finish();
+						//} else if(profile.getWorkoutType() == 3) { //indicates general
+			  //go to the strength track.
+			} else if (profile.getWorkoutType() == 3)
+			  {
 				Intent intent = new Intent(this,StrengthScreen.class);
 				this.startActivity(intent);	
-			} else {
+			  } else {
 				Toast.makeText(this, "Somehow, we have reached an erroneous state!", Toast.LENGTH_SHORT).show();
 			}
 		}
@@ -78,22 +85,28 @@ public class CardioSelection extends Activity implements OnClickListener {
 		CheckBox curBox;
 		curBox = (CheckBox) findViewById(R.id.cardioscreen_checkbox_run);
 		profile.setRun( curBox.isChecked() );
+		profile.setEquipment( getString(R.string.road) , curBox.isChecked());
 		
 		curBox = (CheckBox) findViewById(R.id.cardioscreen_checkbox_swim);
 		profile.setSwim( curBox.isChecked() );
+		profile.setEquipment( getString(R.string.pool) , curBox.isChecked());
 		
 		curBox = (CheckBox) findViewById(R.id.cardioscreen_checkbox_bike);
 		profile.setBike( curBox.isChecked() );
+		profile.setEquipment( getString(R.string.bike) , curBox.isChecked());
 		
 		curBox = (CheckBox) findViewById(R.id.cardioscreen_checkbox_elliptical);
 		profile.setElliptical( curBox.isChecked() );
+		profile.setEquipment( getString(R.string.elliptical) , curBox.isChecked());
 		
 		curBox = (CheckBox) findViewById(R.id.cardioscreen_checkbox_walk);
 		profile.setWalk( curBox.isChecked() );
+		profile.setEquipment( getString(R.string.path) , curBox.isChecked());
 	}
 	
 	protected void onPause() {
 		super.onPause();
 		saveCheckedInformation();
 	}
+
 }

@@ -4,14 +4,19 @@
     android:layout_height="wrap_content"
     android:padding="5dip" 
     android:orientation="horizontal" 
-    android:background="@drawable/background">
+    android:background="@drawable/basic_click_states"
+>
+ 
 
     <ImageView
         android:id="@+id/imgThumb"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:contentDescription="@string/next"
-        android:src="@drawable/bench_press" />
+        android:src="@drawable/bench_press"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+         />
 
     <TextView
         android:id="@+id/txtName"

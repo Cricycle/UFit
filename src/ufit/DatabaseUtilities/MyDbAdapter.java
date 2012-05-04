@@ -13,6 +13,7 @@ import android.database.sqlite.SQLiteException;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.TextUtils.SimpleStringSplitter;
+import android.util.Log;
 
 public class MyDbAdapter {
 	// database fields
@@ -53,10 +54,11 @@ public class MyDbAdapter {
 	 * */
 	
 	private String exerciseType;
-	private String muscleGroup;
+	private String muscleGroup; //ignored
 	private String skillLevel;
 	private String[] equipmentArr;
 	private ArrayList<String> equipmentList;
+	private ArrayList<Integer> MuscleAreasList;
 	private ArrayList<Integer> storedExerciseIDs;
 	
 	
@@ -84,20 +86,21 @@ public class MyDbAdapter {
 		this.setEquipmentList(equipList);
 	}
 	
-	public MyDbAdapter(Context con, int type, int Group, int Skill, ArrayList<String> equipList)
+	//this is the constructor that should be used by the expert system most likley
+	public MyDbAdapter(Context con, int type, ArrayList<Integer> GroupList, int Skill, ArrayList<String> equipList)
 	{
 		myContext = con;
 		this.setExerciseType(Integer.toString(type));
-		this.setMuscleGroup(Integer.toString(Group));
+		this.setMuscleAreasList(GroupList);
 		this.setSkillLevel(Integer.toString(Skill));
 		this.setEquipmentList(equipList);
 	}
 	
-	public MyDbAdapter(Context con, int type, int Group, int Skill, ArrayList<String> equipList, ArrayList<Integer> exerciseList)
+	public MyDbAdapter(Context con, int type, ArrayList<Integer> GroupList, int Skill, ArrayList<String> equipList, ArrayList<Integer> exerciseList)
 	{
 		myContext = con;
 		this.setExerciseType(Integer.toString(type));
-		this.setMuscleGroup(Integer.toString(Group));
+		this.setMuscleAreasList(GroupList);
 		this.setSkillLevel(Integer.toString(Skill));
 		this.setEquipmentList(equipList);
 		this.setStoredExerciseIDs(exerciseList);
@@ -125,11 +128,11 @@ public class MyDbAdapter {
 		this.setStoredExerciseIDs(exerciseList);
 	}
 	
-	public MyDbAdapter(Context con, String type, String Group, String Skill, ArrayList<String> equipList, ArrayList<Integer> exerciseList)
+	public MyDbAdapter(Context con, String type, ArrayList<Integer> GroupList, String Skill, ArrayList<String> equipList, ArrayList<Integer> exerciseList)
 	{
 		myContext = con;
 		this.setExerciseType(type);
-		this.setMuscleGroup(Group);
+		this.setMuscleAreasList(GroupList);
 		this.setSkillLevel(Skill);
 		this.setEquipmentList(equipList);
 		this.setStoredExerciseIDs(exerciseList);
@@ -190,12 +193,42 @@ public class MyDbAdapter {
 		return this;
 	}
 	
+	
+	//BE CAREFUL WITH THIS
+	public MyDbAdapter openWritable() throws SQLException {
+		eDbHelper = new MyDatabaseHelper(myContext);
+		
+    try {
+    	 
+    	eDbHelper.createDataBase();
+
+    } catch (IOException ioe) {
+
+    	throw new Error("Unable to create database");
+
+    }
+
+    try {
+
+    	eDbHelper.openDataBaseWritable();
+
+    }catch(SQLiteException sqle){
+
+    	throw sqle;
+
+    }
+		
+		
+
+		return this;
+	}
+	
 	public void close(){
 		eDbHelper.close();
 	}
 	
 
-    
+    //this method should probably never be called...but just in case?
     public ArrayList<ExerciseInfo> fetchAllExercises() {
     	Cursor qResults = eDbHelper.queryH(tName, proj_all, null, null, null, null, null);	
     	
@@ -217,26 +250,28 @@ public class MyDbAdapter {
     	
     	//copy into list
     	while(qResults.isAfterLast() == false){
-    		String iloc;
+    		String iloc1;
+    		String iloc2;
+    		String iloc3;
     		int imageID;
     		
     		//fetch first image drawable
-    		iloc = qResults.getString(qResults.getColumnIndexOrThrow(col_iloc));
-    		imageID = myContext.getResources().getIdentifier(iloc, "drawable", myContext.getPackageName());
+    		iloc1 = qResults.getString(qResults.getColumnIndexOrThrow(col_iloc));
+    		imageID = myContext.getResources().getIdentifier(iloc1, "drawable", myContext.getPackageName());
     		Drawable Image1Draw = myContext.getResources().getDrawable(imageID);
     		
     		//fetch second image drawable
-       		iloc = qResults.getString(qResults.getColumnIndexOrThrow(col_iloc2));
-    		imageID = myContext.getResources().getIdentifier(iloc, "drawable", myContext.getPackageName());
+       		iloc2 = qResults.getString(qResults.getColumnIndexOrThrow(col_iloc2));
+    		imageID = myContext.getResources().getIdentifier(iloc2, "drawable", myContext.getPackageName());
     		Drawable Image2Draw = myContext.getResources().getDrawable(imageID);
     		
     		//fetch third image drawable
-       		iloc = qResults.getString(qResults.getColumnIndexOrThrow(col_iloc3));
-    		imageID = myContext.getResources().getIdentifier(iloc, "drawable", myContext.getPackageName());
+       		iloc3 = qResults.getString(qResults.getColumnIndexOrThrow(col_iloc3));
+    		imageID = myContext.getResources().getIdentifier(iloc3, "drawable", myContext.getPackageName());
     		Drawable Image3Draw = myContext.getResources().getDrawable(imageID);
     		
     		//construct new ExerciceInfo and add to the ArrayList listExercises
-    		//public ExerciseInfo(int id, int pid, String Exer, int mGroup, int type, String equip, int skill, String Descrip, Drawable i1, Drawable i2, Drawable i3)
+    		//public ExerciseInfo(int id, int pid, String Exer, int mGroup, int type, String equip, int skill, String Descrip, String iloc1, String iloc2, String iloc3, Drawable i1, Drawable i2, Drawable i3)
     		listExercises.add(new ExerciseInfo(
     		qResults.getInt(qResults.getColumnIndexOrThrow(col_id)),
     		qResults.getInt(qResults.getColumnIndexOrThrow(col_pId)),
@@ -246,6 +281,9 @@ public class MyDbAdapter {
     		qResults.getString(qResults.getColumnIndexOrThrow(col_equip)),
     		qResults.getInt(qResults.getColumnIndexOrThrow(col_skill)),
     		qResults.getString(qResults.getColumnIndexOrThrow(col_desc)),
+    		iloc1,
+    		iloc2,
+    		iloc3,
     		Image1Draw,
     		Image2Draw,
     		Image3Draw
@@ -268,10 +306,14 @@ public class MyDbAdapter {
     	String WhereClause = null;
     	
     	//Insert null checks for filters
-    	if((this.getExerciseType() != null) && (this.getMuscleGroup() != null) && (this.getSkillLevel() != null) && (this.getEquipmentList() != null))
+    	if((this.getExerciseType() != null) && (this.getMuscleAreasList() != null) && (this.getSkillLevel() != null) && (this.getEquipmentList() != null))
     	{
-    	qHelp = new MyQueryHelper(getExerciseType(), getMuscleGroup(), getEquipmentList(), getSkillLevel());
+    	qHelp = new MyQueryHelper(getExerciseType(), getMuscleAreasList(), getEquipmentList(), getSkillLevel());
     	WhereClause = qHelp.buildMainWhere();
+    	}
+    	else //lol i love how android has a wtf message
+    	{
+    		Log.wtf("null filter", "Why weren't the filters set before the Adaptor Constructor");
     	}
     	
     	//if all filters were set qResults is the list of focus exercises. Else, qResults is the list of ALL exercises;
@@ -290,26 +332,33 @@ public class MyDbAdapter {
     	
     	//copy into list
     	while(qResults.isAfterLast() == false){
-    		String iloc;
+    		String iloc1;
+    		String iloc2;
+    		String iloc3;
     		int imageID;
     		
-    		//fetch first image drawable
-    		iloc = qResults.getString(qResults.getColumnIndexOrThrow(col_iloc));
-    		imageID = myContext.getResources().getIdentifier(iloc, "drawable", myContext.getPackageName());
+    		iloc1 = qResults.getString(qResults.getColumnIndexOrThrow(col_iloc));
+       		iloc2 = qResults.getString(qResults.getColumnIndexOrThrow(col_iloc2));
+       		iloc3 = qResults.getString(qResults.getColumnIndexOrThrow(col_iloc3));
+    		
+/*    		//fetch first image drawable
+
+    		imageID = myContext.getResources().getIdentifier(iloc1, "drawable", myContext.getPackageName());
     		Drawable Image1Draw = myContext.getResources().getDrawable(imageID);
     		
     		//fetch second image drawable
-       		iloc = qResults.getString(qResults.getColumnIndexOrThrow(col_iloc2));
-    		imageID = myContext.getResources().getIdentifier(iloc, "drawable", myContext.getPackageName());
+
+    		imageID = myContext.getResources().getIdentifier(iloc2, "drawable", myContext.getPackageName());
     		Drawable Image2Draw = myContext.getResources().getDrawable(imageID);
     		
     		//fetch third image drawable
-       		iloc = qResults.getString(qResults.getColumnIndexOrThrow(col_iloc3));
-    		imageID = myContext.getResources().getIdentifier(iloc, "drawable", myContext.getPackageName());
+
+    		imageID = myContext.getResources().getIdentifier(iloc3, "drawable", myContext.getPackageName());
     		Drawable Image3Draw = myContext.getResources().getDrawable(imageID);
+*/
     		
     		//construct new ExerciceInfo and add to the ArrayList listExercises
-    		//public ExerciseInfo(int id, int pid, String Exer, int mGroup, int type, String equip, int skill, String Descrip, Drawable i1, Drawable i2, Drawable i3)
+    		//public ExerciseInfo(int id, int pid, String Exer, int mGroup, int type, String equip, int skill, String Descrip, String i1, String i2, String i3)
     		listExercises.add(new ExerciseInfo(
     		qResults.getInt(qResults.getColumnIndexOrThrow(col_id)),
     		qResults.getInt(qResults.getColumnIndexOrThrow(col_pId)),
@@ -319,9 +368,9 @@ public class MyDbAdapter {
     		qResults.getString(qResults.getColumnIndexOrThrow(col_equip)),
     		qResults.getInt(qResults.getColumnIndexOrThrow(col_skill)),
     		qResults.getString(qResults.getColumnIndexOrThrow(col_desc)),
-    		Image1Draw,
-    		Image2Draw,
-    		Image3Draw
+    		iloc1,
+    		iloc2,
+    		iloc3
     		)
     		);
     		//move cursor to next row in result
@@ -340,10 +389,14 @@ public class MyDbAdapter {
     	String WhereClause = null;
     	
     	//Insert null checks for filters
-    	if((this.getExerciseType() != null) && (this.getMuscleGroup() != null) && (this.getSkillLevel() != null) && (this.getEquipmentList() != null))
+    	if((this.getExerciseType() != null) && (this.getMuscleAreasList() != null) && (this.getSkillLevel() != null) && (this.getEquipmentList() != null))
     	{
-    	qHelp = new MyQueryHelper(getExerciseType(), getMuscleGroup(), getEquipmentList(), getSkillLevel());
+    	qHelp = new MyQueryHelper(getExerciseType(), getMuscleAreasList(), getEquipmentList(), getSkillLevel());
     	WhereClause = qHelp.buildElseWhere();
+    	}
+    	else //lol i love how android has a wtf message
+    	{
+    		Log.wtf("null filter", "Why weren't the filters set before the Adaptor Constructor");
     	}
     	
     	/*if all filters were set qResults is the list of nonFocus exercises, 
@@ -365,26 +418,30 @@ public class MyDbAdapter {
     	
     	//copy into list
     	while(qResults.isAfterLast() == false){
-    		String iloc;
+    		String iloc1;
+    		String iloc2;
+    		String iloc3;
     		int imageID;
     		
-    		//fetch first image drawable
-    		iloc = qResults.getString(qResults.getColumnIndexOrThrow(col_iloc));
-    		imageID = myContext.getResources().getIdentifier(iloc, "drawable", myContext.getPackageName());
+    		iloc1 = qResults.getString(qResults.getColumnIndexOrThrow(col_iloc));
+       		iloc2 = qResults.getString(qResults.getColumnIndexOrThrow(col_iloc2));
+       		iloc3 = qResults.getString(qResults.getColumnIndexOrThrow(col_iloc3));
+    		
+/*    		//fetch first image drawable
+    		imageID = myContext.getResources().getIdentifier(iloc1, "drawable", myContext.getPackageName());
     		Drawable Image1Draw = myContext.getResources().getDrawable(imageID);
     		
     		//fetch second image drawable
-       		iloc = qResults.getString(qResults.getColumnIndexOrThrow(col_iloc2));
-    		imageID = myContext.getResources().getIdentifier(iloc, "drawable", myContext.getPackageName());
+    		imageID = myContext.getResources().getIdentifier(iloc2, "drawable", myContext.getPackageName());
     		Drawable Image2Draw = myContext.getResources().getDrawable(imageID);
     		
     		//fetch third image drawable
-       		iloc = qResults.getString(qResults.getColumnIndexOrThrow(col_iloc3));
-    		imageID = myContext.getResources().getIdentifier(iloc, "drawable", myContext.getPackageName());
+    		imageID = myContext.getResources().getIdentifier(iloc3, "drawable", myContext.getPackageName());
     		Drawable Image3Draw = myContext.getResources().getDrawable(imageID);
+*/
     		
     		//construct new ExerciceInfo and add to the ArrayList listExercises
-    		//public ExerciseInfo(int id, int pid, String Exer, int mGroup, int type, String equip, int skill, String Descrip, Drawable i1, Drawable i2, Drawable i3)
+    		//public ExerciseInfo(int id, int pid, String Exer, int mGroup, int type, String equip, int skill, String Descrip, String i1, String i2, String i3)
     		listExercises.add(new ExerciseInfo(
     		qResults.getInt(qResults.getColumnIndexOrThrow(col_id)),
     		qResults.getInt(qResults.getColumnIndexOrThrow(col_pId)),
@@ -394,9 +451,9 @@ public class MyDbAdapter {
     		qResults.getString(qResults.getColumnIndexOrThrow(col_equip)),
     		qResults.getInt(qResults.getColumnIndexOrThrow(col_skill)),
     		qResults.getString(qResults.getColumnIndexOrThrow(col_desc)),
-    		Image1Draw,
-    		Image2Draw,
-    		Image3Draw
+    		iloc1,
+    		iloc2,
+    		iloc3
     		)
     		);
     		//move cursor to next row in result
@@ -432,26 +489,28 @@ public class MyDbAdapter {
     	
     	//copy into list
 
-		String iloc;
+		String iloc1;
+		String iloc2;
+		String iloc3;
 		int imageID;
 		
 		//fetch first image drawable
-		iloc = qResults.getString(qResults.getColumnIndexOrThrow(col_iloc));
-		imageID = myContext.getResources().getIdentifier(iloc, "drawable", myContext.getPackageName());
+		iloc1 = qResults.getString(qResults.getColumnIndexOrThrow(col_iloc));
+		imageID = myContext.getResources().getIdentifier(iloc1, "drawable", myContext.getPackageName());
 		Drawable Image1Draw = myContext.getResources().getDrawable(imageID);
 		
 		//fetch second image drawable
-   		iloc = qResults.getString(qResults.getColumnIndexOrThrow(col_iloc2));
-		imageID = myContext.getResources().getIdentifier(iloc, "drawable", myContext.getPackageName());
+   		iloc2 = qResults.getString(qResults.getColumnIndexOrThrow(col_iloc2));
+		imageID = myContext.getResources().getIdentifier(iloc2, "drawable", myContext.getPackageName());
 		Drawable Image2Draw = myContext.getResources().getDrawable(imageID);
 		
 		//fetch third image drawable
-   		iloc = qResults.getString(qResults.getColumnIndexOrThrow(col_iloc3));
-		imageID = myContext.getResources().getIdentifier(iloc, "drawable", myContext.getPackageName());
+   		iloc3 = qResults.getString(qResults.getColumnIndexOrThrow(col_iloc3));
+		imageID = myContext.getResources().getIdentifier(iloc3, "drawable", myContext.getPackageName());
 		Drawable Image3Draw = myContext.getResources().getDrawable(imageID);
 		
 		//construct new ExerciceInfo and add to the ArrayList listExercises
-		//public ExerciseInfo(int id, int pid, String Exer, int mGroup, int type, String equip, int skill, String Descrip, Drawable i1, Drawable i2, Drawable i3)
+		//public ExerciseInfo(int id, int pid, String Exer, int mGroup, int type, String equip, int skill, String Descrip, String iloc1, String iloc2, String iloc3, Drawable i1, Drawable i2, Drawable i3)
 		theExercise = new ExerciseInfo(
 		qResults.getInt(qResults.getColumnIndexOrThrow(col_id)),
 		qResults.getInt(qResults.getColumnIndexOrThrow(col_pId)),
@@ -461,6 +520,9 @@ public class MyDbAdapter {
 		qResults.getString(qResults.getColumnIndexOrThrow(col_equip)),
 		qResults.getInt(qResults.getColumnIndexOrThrow(col_skill)),
 		qResults.getString(qResults.getColumnIndexOrThrow(col_desc)),
+		iloc1,
+		iloc2,
+		iloc3,
 		Image1Draw,
 		Image2Draw,
 		Image3Draw
@@ -494,26 +556,28 @@ public class MyDbAdapter {
     	
     	//copy into list
     	while(qResults.isAfterLast() == false){
-    		String iloc;
-    		int imageID;
+    		String iloc1;
+    		String iloc2;
+    		String iloc3;
+    		//int imageID;
     		
     		//fetch first image drawable
-    		iloc = qResults.getString(qResults.getColumnIndexOrThrow(col_iloc));
-    		imageID = myContext.getResources().getIdentifier(iloc, "drawable", myContext.getPackageName());
-    		Drawable Image1Draw = myContext.getResources().getDrawable(imageID);
+    		iloc1 = qResults.getString(qResults.getColumnIndexOrThrow(col_iloc));
+    	//	imageID = myContext.getResources().getIdentifier(iloc1, "drawable", myContext.getPackageName());
+    	//	Drawable Image1Draw = myContext.getResources().getDrawable(imageID);
     		
     		//fetch second image drawable
-       		iloc = qResults.getString(qResults.getColumnIndexOrThrow(col_iloc2));
-    		imageID = myContext.getResources().getIdentifier(iloc, "drawable", myContext.getPackageName());
-    		Drawable Image2Draw = myContext.getResources().getDrawable(imageID);
+       		iloc2 = qResults.getString(qResults.getColumnIndexOrThrow(col_iloc2));
+    	//	imageID = myContext.getResources().getIdentifier(iloc2, "drawable", myContext.getPackageName());
+    	//	Drawable Image2Draw = myContext.getResources().getDrawable(imageID);
     		
     		//fetch third image drawable
-       		iloc = qResults.getString(qResults.getColumnIndexOrThrow(col_iloc3));
-    		imageID = myContext.getResources().getIdentifier(iloc, "drawable", myContext.getPackageName());
-    		Drawable Image3Draw = myContext.getResources().getDrawable(imageID);
+       		iloc3 = qResults.getString(qResults.getColumnIndexOrThrow(col_iloc3));
+    	//	imageID = myContext.getResources().getIdentifier(iloc3, "drawable", myContext.getPackageName());
+    	//	Drawable Image3Draw = myContext.getResources().getDrawable(imageID);
     		
     		//construct new ExerciceInfo and add to the ArrayList listExercises
-    		//public ExerciseInfo(int id, int pid, String Exer, int mGroup, int type, String equip, int skill, String Descrip, Drawable i1, Drawable i2, Drawable i3)
+    		//public ExerciseInfo(int id, int pid, String Exer, int mGroup, int type, String equip, int skill, String Descrip, String iloc1, String iloc2, String iloc3, Drawable i1, Drawable i2, Drawable i3)
     		listExercises.add(new ExerciseInfo(
     		qResults.getInt(qResults.getColumnIndexOrThrow(col_id)),
     		qResults.getInt(qResults.getColumnIndexOrThrow(col_pId)),
@@ -523,9 +587,9 @@ public class MyDbAdapter {
     		qResults.getString(qResults.getColumnIndexOrThrow(col_equip)),
     		qResults.getInt(qResults.getColumnIndexOrThrow(col_skill)),
     		qResults.getString(qResults.getColumnIndexOrThrow(col_desc)),
-    		Image1Draw,
-    		Image2Draw,
-    		Image3Draw
+    		iloc1,
+    		iloc2,
+    		iloc3
     		)
     		);
     		//move cursor to next row in result
@@ -607,6 +671,14 @@ public class MyDbAdapter {
 
 	public void setStoredExerciseIDs(ArrayList<Integer> storedExerciseIDs) {
 		this.storedExerciseIDs = storedExerciseIDs;
+	}
+
+	public ArrayList<Integer> getMuscleAreasList() {
+		return MuscleAreasList;
+	}
+
+	public void setMuscleAreasList(ArrayList<Integer> muscleAreasList) {
+		MuscleAreasList = muscleAreasList;
 	}
 
     

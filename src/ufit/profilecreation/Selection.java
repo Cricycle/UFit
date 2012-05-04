@@ -67,6 +67,9 @@ public class Selection extends ListActivity implements OnClickListener {
 	public void onClick(View v) {
 		if(v.getId() == R.id.selection_button_createprofile){
 			Intent intent = new Intent(this,ProfileCreationActivity.class);
+			Bundle B = new Bundle();
+			B.putBoolean("new", true);
+			intent.putExtras(B);
 			this.startActivity(intent);
 		} else { //this means it should be one of the dynamic buttons.
 		}
@@ -110,10 +113,12 @@ class MyListAdapter extends ArrayAdapter<String>{//desperate gambit.
             v.setOnClickListener(new OnClickListener() {
             	public void onClick(View v) {
             		Intent intent = new Intent(context, HomeScreen.class);
-            		intent.setAction("newprofile " + name);
+            		Bundle b = new Bundle();
+            		b.putString("loadprofile", name);
+            		intent.putExtras(b);
             		context.startActivity(intent);
             	}
-            	
+
             });
         }
         if (name != null) {

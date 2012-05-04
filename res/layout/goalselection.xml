@@ -4,7 +4,8 @@
     android:layout_height="fill_parent"
     android:background="@drawable/background"
     android:gravity="right"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:weightSum="7">
 
 
     <TextView
@@ -17,30 +18,43 @@
     <ufit.global.SwitchButton
         android:id="@+id/goalselection_button_strength"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="0dp"
+        android:layout_weight="2"
         android:onClick="toggle"
         android:background="@drawable/strength_off"/>  
      
     <ufit.global.SwitchButton
         android:id="@+id/goalselection_button_cardio"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="0dp"
+        android:layout_weight="2"
         android:onClick="toggle"
         android:background="@drawable/cardio_off" />
      
     <ufit.global.SwitchButton
         android:id="@+id/goalselection_button_general"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="0dp"
+        android:layout_weight="2"
         android:onClick="toggle"
-        android:background="@drawable/general_off" />
+        android:background="@drawable/general_off" /><LinearLayout 
+    
+    android:layout_height="0dp"
+    android:layout_width="fill_parent"
+    android:weightSum="3"
+    android:layout_weight="1"
+    android:orientation="horizontal"
+    android:gravity="right">
+    
     <Button
         android:id="@+id/goalselection_button_next"
-        android:layout_width="85dp"
-        android:layout_height="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:text="Next" 
-        android:textSize="20dp"
-        android:background="@drawable/custombutton"/> 
+        android:textSize="25dp"
+        android:background="@drawable/orange_button_clickstates"/> 
+   </LinearLayout>
 
 </LinearLayout>
 

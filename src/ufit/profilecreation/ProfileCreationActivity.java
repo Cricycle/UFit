@@ -23,9 +23,18 @@ public class ProfileCreationActivity extends Activity implements OnClickListener
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		profile = ((MyApp)getApplicationContext()).getProfile();
+		Bundle extras = this.getIntent().getExtras();
+		boolean newFlag = extras.getBoolean("new");
+		if(newFlag)
+		{
+			profile = ((MyApp)getApplicationContext()).newProfile();
+			((MyApp)getApplicationContext()).setGoal(0);
+		}
+		else
+		{
+			profile = ((MyApp)getApplicationContext()).getProfile();
+		}
 		setContentView(R.layout.profilecreation);
-		
 		//load the information from profile into the display boxes on the screen.
 		setupSpinner();
 		loadProfileView();
@@ -37,8 +46,8 @@ public class ProfileCreationActivity extends Activity implements OnClickListener
 		//set the OnKeyListener for the editTexts.
 		//setOnKeyListenerForViews();=
 		
-		TextView v2 = (TextView) findViewById(R.id.profile_textview_bmidisplay);
-		v2.setText("23");
+//		TextView v2 = (TextView) findViewById(R.id.profile_textview_bmidisplay);
+//		v2.setText("23");
 	}
 	
 	//overriding the onPause method.

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:focusable="false" >
+ 
+ <TextView
+     	android:id="@+id/progress_report"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Progress Report"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ff8c00"
+        android:textSize="30dp"
+        android:textStyle="bold" >
+        </TextView>
+
+  <TextView
+        android:id="@+id/progress_curweight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/progress_report"
+        android:layout_margin="10dp"
+        android:text="Enter Current Weight:"
+        android:textColor="#ff8c00"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+  
+  <TextView
+        android:id="@+id/space"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/progress_curweight"
+        android:layout_below="@+id/progresslayout"
+        android:lines="1"
+       />
+  
+  <TextView
+        android:id="@+id/progress_textview_bmi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/progress_curweight"
+        android:layout_below="@+id/space"
+        android:text="BMI: "
+        android:lines="2"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ff8c00"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/progress_textview_bmidisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/space"
+        android:layout_alignLeft="@+id/progress_button_graph"
+        android:text="@string/bmi"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ff8c00"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/progress_textview_calorie_warning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/progress_curweight"
+        android:layout_below="@+id/progress_textview_bmi"
+        android:lines="5"
+        android:text="WARNING: For safe and healthy weight loss, the minimum number of calories per day for women is 1200 calories and for men is 1800 calories"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ff8c00"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/progress_textview_calorie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/progress_curweight"
+        android:layout_below="@+id/progress_textview_calorie_warning"
+        android:lines="2"
+        android:text="Recommended Calorie Count to MAINTAIN weight: "
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ff8c00"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+    
+    <TextView
+        android:id="@+id/progress_textview_caloriedisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/progress_textview_calorie"
+        android:layout_alignRight="@+id/progress_button_graph"
+        android:text="@string/calories"
+        android:lines="2"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ff8c00"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+ 
+    
+<EditText
+        android:id="@+id/progress_edittext_curweight"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/progress_report"
+        android:layout_toRightOf="@+id/progress_curweight"
+        android:inputType="numberDecimal" />
+    
+
+    <Button
+        android:id="@+id/progress_button_graph"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:background="@drawable/orange_button_clickstates"
+        android:text="Progress Graph"
+        android:layout_centerHorizontal="true"
+   		android:layout_below="@+id/progress_textview_caloriedisplay"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+   
+    <RelativeLayout 
+        android:id="@+id/progresslayout"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+   		android:layout_below="@+id/progress_curweight"
+   		android:layout_marginTop="14dp">
+    <Button
+        android:id="@+id/progress_button_save"
+        android:layout_width="75dp"
+        android:layout_height="35dp"
+        android:background="@drawable/orange_button_clickstates"
+        android:text="save"
+        android:layout_gravity="center"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+    <Button
+        android:id="@+id/reset_progress"
+        android:layout_width="75dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:background="@drawable/orange_button_clickstates"
+        android:text="Reset Graph"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/progress_button_save"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+    </RelativeLayout>
+   <Button
+        android:id="@+id/progress_button_back"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/orange_button_clickstates"
+        android:text="Back"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+  
+</RelativeLayout>

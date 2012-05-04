@@ -40,14 +40,6 @@
         android:stretchColumns="1" >
 
         <TableRow>
-            <Button
-                android:id="@+id/planner_button_sunday"
-                android:layout_width="60dp"
-                android:layout_height="50dp"
-                android:text="@string/sunday"
-                android:textColor="#ff8c00"
-                android:textSize="25dp"
-                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/planner_textview_sunday"
@@ -58,18 +50,11 @@
                 android:text="@string/muscle_group_sun"
                 android:textColor="#ff8c00"
                 android:textSize="20dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:background="@drawable/basic_click_states" />
         </TableRow>
 
         <TableRow>
-            <Button
-                android:id="@+id/planner_button_monday"
-                android:layout_width="60dp"
-                android:layout_height="50dp"
-                android:text="@string/monday"
-                android:textColor="#ff8c00"
-                android:textSize="25dp"
-                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/planner_textview_monday"
@@ -80,17 +65,10 @@
                 android:text="@string/muscle_group_mon"
                 android:textColor="#ff8c00"
                 android:textSize="20dp"
+                android:background="@drawable/basic_click_states"
                 android:textStyle="bold" />
         </TableRow>
         <TableRow>
-            <Button
-                android:id="@+id/planner_button_tuesday"
-                android:layout_width="60dp"
-                android:layout_height="50dp"
-                android:text="@string/tuesday"
-                android:textColor="#ff8c00"
-                android:textSize="25dp"
-                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/planner_textview_tuesday"
@@ -101,18 +79,11 @@
                 android:text="@string/muscle_group_tue"
                 android:textColor="#ff8c00"
                 android:textSize="20dp"
+                android:background="@drawable/basic_click_states"
                 android:textStyle="bold" />
         </TableRow>
 
         <TableRow>
-            <Button
-                android:id="@+id/planner_button_wednesday"
-                android:layout_width="60dp"
-                android:layout_height="50dp"
-                android:text="@string/wednesday"
-                android:textColor="#ff8c00"
-                android:textSize="25dp"
-                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/planner_textview_wednesday"
@@ -123,17 +94,10 @@
                 android:text="@string/muscle_group_wed"
                 android:textColor="#ff8c00"
                 android:textSize="20dp"
+                android:background="@drawable/basic_click_states"
                 android:textStyle="bold" />
         </TableRow>
         <TableRow>
-            <Button
-                android:id="@+id/planner_button_thursday"
-                android:layout_width="60dp"
-                android:layout_height="50dp"
-                android:text="@string/thursday"
-                android:textColor="#ff8c00"
-                android:textSize="25dp"
-                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/planner_textview_thursday"
@@ -144,18 +108,11 @@
                 android:text="@string/muscle_group_thu"
                 android:textColor="#ff8c00"
                 android:textSize="20dp"
+                android:background="@drawable/basic_click_states"
                 android:textStyle="bold" />
         </TableRow>
 
         <TableRow>
-            <Button
-                android:id="@+id/planner_button_friday"
-                android:layout_width="60dp"
-                android:layout_height="50dp"
-                android:text="@string/friday"
-                android:textColor="#ff8c00"
-                android:textSize="25dp"
-                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/planner_textview_friday"
@@ -166,17 +123,10 @@
                 android:text="@string/muscle_group_fri"
                 android:textColor="#ff8c00"
                 android:textSize="20dp"
+                android:background="@drawable/basic_click_states"
                 android:textStyle="bold" />
         </TableRow>
         <TableRow>
-            <Button
-                android:id="@+id/planner_button_saturday"
-                android:layout_width="60dp"
-                android:layout_height="50dp"
-                android:text="@string/saturday"
-                android:textColor="#ff8c00"
-                android:textSize="25dp"
-                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/planner_textview_saturday"
@@ -187,17 +137,20 @@
                 android:text="@string/muscle_group_sat"
                 android:textColor="#ff8c00"
                 android:textSize="20dp"
+                android:background="@drawable/basic_click_states"
                 android:textStyle="bold" />
         </TableRow>
     </TableLayout>
-
+    
     <Button
-        android:id="@+id/planner_button_back"
-        android:layout_width="70dp"
+        android:id="@+id/homescreenback"
+        android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_gravity="right"
-        android:background="@drawable/button_orange"
-        android:text="@string/next"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="center"
+        android:background="@drawable/orange_button_clickstates"
+        android:text="Home Screen"
         android:textSize="20dp"
         android:textStyle="bold" />
 </LinearLayout>

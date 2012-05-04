@@ -17,7 +17,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class MyDatabaseHelper extends SQLiteOpenHelper {
 
 	//needs to be updated to our actual path /data/data/packageName/databases/
-	private static String dbPath = "/data/data/UFit.namespace/databases/";
+	private static String dbPath = "/data/data/ufit.namespace/databases/";
 	 
     private static String dbName = "exercisesDB.db";
  

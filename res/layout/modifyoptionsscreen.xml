@@ -47,44 +47,74 @@
         android:layout_weight="1.5" >
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal" 
+        android:weightSum="4"
+        android:layout_weight="10" 
+        android:gravity="center">
+        
+        <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical" 
+        android:layout_weight="2" >
+    
     <Button
         android:id="@+id/mod_equip"
-        android:layout_width="150dp"
-        android:layout_height="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_gravity="center_vertical|center_horizontal"
-        android:background="@drawable/button_orange"
+        android:background="@drawable/orange_button_clickstates"
         android:text="@string/modify_equipment"
         android:textSize="20dp"
+        android:layout_weight="2.5" 
         android:textStyle="bold" />
 
     <Button
         android:id="@+id/mod_goals"
-        android:layout_width="150dp"
-        android:layout_height="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_gravity="center_vertical|center_horizontal"
-        android:background="@drawable/button_orange"
+        android:background="@drawable/orange_button_clickstates"
         android:text="@string/modify_goals"
         android:textSize="20dp"
+        android:layout_weight="2.5" 
+        android:textStyle="bold" />
+    
+    <Button
+        android:id="@+id/mod_targetweight"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:background="@drawable/orange_button_clickstates"
+        android:text="Change Target Weight"
+        android:textSize="20dp"
+        android:layout_weight="2.5" 
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/mod_exercises"
-        android:layout_width="150dp"
-        android:layout_height="70dp"
+        android:id="@+id/delete_profile"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_gravity="center_vertical|center_horizontal"
-        android:background="@drawable/button_orange"
-        android:text="@string/modify_exercises"
+        android:background="@drawable/orange_button_clickstates"
+        android:text="Delete Profile"
         android:textSize="20dp"
+        android:layout_weight="2.5" 
         android:textStyle="bold" />
-
+</LinearLayout>
+    </LinearLayout>
+    
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="2" >
     </LinearLayout>
-    
   	<Button
+  	    android:visibility="gone"
         android:id="@+id/button0"
         android:layout_gravity="right"
         android:layout_width="70dp"

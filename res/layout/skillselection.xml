@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1.00"
-        android:background="@drawable/button_orange"
+        android:background="@drawable/orange_button_clickstates"
         android:text="Beginner"
         android:textSize="40dp" />
 
@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1.00"
-        android:background="@drawable/button_orange"
+        android:background="@drawable/orange_button_clickstates"
         android:text="Intermediate"
         android:textSize="40dp" />
 
@@ -29,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1.00"
-        android:background="@drawable/button_orange"
+        android:background="@drawable/orange_button_clickstates"
         android:text="Advanced"
         android:textSize="40dp" />
 

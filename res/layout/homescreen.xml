@@ -14,6 +14,13 @@
         android:textSize="30dp"
         android:textStyle="bold" >
         </TextView>
+        
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" 
+        android:layout_weight="1" >
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout1"
@@ -30,8 +37,8 @@
             android:id="@+id/homescreen_textview_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
             android:layout_weight="1"
+            android:layout_gravity="center_vertical"
             android:text="@string/user_name"
             android:textColor="#ff8c00"
             android:textSize="25dp"
@@ -44,13 +51,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" 
-        android:layout_weight="1.5" >
+        android:layout_weight="0.5" >
     </LinearLayout>
-
+      
+     <LinearLayout 
+         android:layout_width="match_parent"
+         android:layout_height="0dp"
+         android:layout_weight="9"
+         android:weightSum="4"
+         android:orientation="horizontal"
+         android:gravity="center">
+        
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="2">
+  
+        
     <Button
+        android:visibility="gone"
         android:id="@+id/homescreen_button_todaysexercises"
-        android:layout_width="150dp"
-        android:layout_height="70dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_gravity="center_vertical|center_horizontal"
         android:background="@drawable/button_orange"
         android:text="@string/today"
@@ -59,34 +82,38 @@
 
     <Button
         android:id="@+id/homescreen_button_weeksexercises"
-        android:layout_width="150dp"
-        android:layout_height="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_gravity="center_vertical|center_horizontal"
-        android:background="@drawable/button_orange"
+        android:background="@drawable/orange_button_clickstates"
         android:text="@string/weekly"
         android:textSize="20dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_weight="3" />
 
     <Button
         android:id="@+id/homescreen_button_modify"
-        android:layout_width="150dp"
-        android:layout_height="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_gravity="center_vertical|center_horizontal"
-        android:background="@drawable/button_orange"
+        android:background="@drawable/orange_button_clickstates"
         android:text="@string/modify_profile"
         android:textSize="20dp"
-        android:textStyle="bold" />
+        android:textStyle="bold" 
+        android:layout_weight="3" />
 
     <Button
         android:id="@+id/home_progress"
-        android:layout_width="150dp"
-        android:layout_height="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_gravity="center_vertical|center_horizontal"
-        android:background="@drawable/button_orange"
+        android:background="@drawable/orange_button_clickstates"
         android:text="@string/progress_report"
         android:textSize="20dp"
-        android:textStyle="bold" />
+        android:textStyle="bold" 
+        android:layout_weight="3" />
     <Button
+        android:visibility="gone"
         android:id="@+id/button0"
         android:layout_gravity="right"
         android:layout_width="70dp"
@@ -95,6 +122,8 @@
         android:background="@drawable/button_orange"
         android:textSize="20dp"
         android:textStyle="bold" />
+    </LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout2"

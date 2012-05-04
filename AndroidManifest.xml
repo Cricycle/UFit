@@ -8,11 +8,12 @@
 
     <application
         android:name= "ufit.global.MyApp"
-        android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name" >
+        android:icon="@drawable/noimage"
+        android:label="@string/app_name">
         <activity
             android:name="ufit.profilecreation.LoadingScreen"
-            android:label="@string/app_name" >
+            android:label="@string/app_name" 
+        	android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,7 +22,8 @@
         </activity>
          <activity
             android:name="ufit.profilecreation.NextScreen"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+        	android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="com.UFit.namespace.DISCLAIMER" />
 				<category android:name="android.intent.category.DEFAULT" />
@@ -29,7 +31,8 @@
         </activity>
         <activity
             android:name="ufit.profilecreation.CardioSelection"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+        	android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="com.UFit.namespace.CARDIOSELECTION" />
 				<category android:name="android.intent.category.DEFAULT" />
@@ -37,7 +40,8 @@
         </activity>
         <activity
             android:name="ufit.profilecreation.HomeScreen"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+        	android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="com.UFit.namespace.HOMESCREEN" />
 				<category android:name="android.intent.category.DEFAULT" />
@@ -45,7 +49,26 @@
         </activity>
          <activity
             android:name="ufit.profilecreation.MachineSelection"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+        	android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="com.UFit.namespace.MACHINESELECTION" />
+				<category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="ufit.profilecreation.Progress"
+            android:label="@string/app_name"
+        	android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="com.UFit.namespace.PROGRESS" />
+				<category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="ufit.profilecreation.MachineSelection"
+            android:label="@string/app_name"
+        	android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="com.UFit.namespace.MACHINESELECTION" />
 				<category android:name="android.intent.category.DEFAULT" />
@@ -53,7 +76,8 @@
         </activity>
         <activity
             android:name="ufit.profilecreation.Selection"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+        	android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="com.UFit.namespace.SELECTION" />
 				<category android:name="android.intent.category.DEFAULT" />
@@ -61,7 +85,8 @@
         </activity>
         <activity
             android:name="ufit.profilecreation.GoalSelection"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+        	android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="com.UFit.namespace.GOALSELECTION" />
 				<category android:name="android.intent.category.DEFAULT" />
@@ -69,7 +94,8 @@
         </activity>
         <activity
             android:name="ufit.profilecreation.StrengthScreen"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+        	android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="com.UFit.namespace.STRENGTHSCREEN" />
 				<category android:name="android.intent.category.DEFAULT" />
@@ -77,7 +103,8 @@
         </activity>
         <activity
             android:name="ufit.profilecreation.SkillSelection"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+        	android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="com.UFit.namespace.SKILLSELECTION" />
 				<category android:name="android.intent.category.DEFAULT" />
@@ -85,7 +112,8 @@
         </activity>
         <activity
             android:name="ufit.profilecreation.ProfileCreationActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+        	android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="com.UFit.namespace.PROFILE" />
 				<category android:name="android.intent.category.DEFAULT" />
@@ -93,7 +121,8 @@
         </activity>
         <activity
             android:name="ufit.profilecreation.TodaysExercisesActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+        	android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="com.UFit.namespace.todaysexercises" />
 				<category android:name="android.intent.category.DEFAULT" />
@@ -101,7 +130,8 @@
         </activity>
         <activity
             android:name="ufit.profilecreation.WeeklyPlannerActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+        	android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="com.UFit.namespace.WeeklyPlannerActivity" />
 				<category android:name="android.intent.category.DEFAULT" />
@@ -109,7 +139,8 @@
         </activity>
         <activity
             android:name="ufit.profilecreation.ModifyOptionsScreenActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+        	android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="com.UFit.namespace.ModifyOptionsScreenActivity" />
 				<category android:name="android.intent.category.DEFAULT" />
@@ -117,13 +148,42 @@
         </activity>
 		<activity
             android:name="ufit.profilecreation.ExerciseInfoActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+        	android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="com.UFit.namespace.ExerciseInfoActivity" />
 				<category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
+        <activity
+            android:name="ufit.profilecreation.Deletion"
+            android:label="@string/app_name"
+        	android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="com.UFit.namespace.Deletion" />
+				<category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="org.achartengine.GraphicalActivity"
+        		  android:screenOrientation="portrait"/>
+        <activity
+            android:name="ufit.profilecreation.EditTargetWeight"
+            android:label="@string/app_name"
+        	android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="com.UFit.namespace.EditTargetWeight" />
+				<category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="ufit.profilecreation.DeleteProgress"
+            android:label="@string/app_name"
+        	android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="com.UFit.namespace.DeleteProgress" />
+				<category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

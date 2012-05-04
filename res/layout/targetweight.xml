@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:focusable="false" >
+ 
+ <TextView
+     	android:id="@+id/Target_Weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Change Target"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ff8c00"
+        android:textSize="30dp"
+        android:textStyle="bold" >
+        </TextView>
+  <TextView
+     	android:id="@+id/Target_Weight2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Weight"
+        android:layout_below="@+id/Target_Weight"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:textColor="#ff8c00"
+        android:textSize="30dp"
+        android:textStyle="bold" >
+        </TextView>
+
+  <TextView
+        android:id="@+id/change_curtargetweight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Target_Weight2"
+        android:layout_margin="10dp"
+        android:text="Enter Target Weight:"
+        android:layout_marginBottom="30dp"
+        android:textColor="#ff8c00"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+  
+  <EditText
+        android:id="@+id/edittext_targetweight"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Target_Weight2"
+        android:layout_toRightOf="@+id/change_curtargetweight"
+        android:inputType="numberDecimal" />
+  
+  <Button
+        android:id="@+id/target_button_save"
+        android:layout_width="75dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:background="@drawable/orange_button_clickstates"
+        android:text="save"
+        android:layout_centerHorizontal="true"
+   		android:layout_below="@+id/change_curtargetweight"
+   		android:layout_marginTop="30dp"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+    
+
+</RelativeLayout>

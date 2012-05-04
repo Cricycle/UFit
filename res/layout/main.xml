@@ -38,13 +38,14 @@
         android:layout_height="61dp"
         android:layout_weight="0.97"
         android:drawSelectorOnTop="false"
-        android:clickable="true" />
+        android:clickable="false" />
+       
 
     <Button
         android:id="@+id/selection_button_createprofile"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="@drawable/buttontheme"
+        android:background="@drawable/orange_button_clickstates"
         android:onClick="onClickd"
         android:text="Create New Profile"
         android:textSize="20dp"
